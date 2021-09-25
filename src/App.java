@@ -1,5 +1,10 @@
 public class App {
-	public static void main(String args[]) {
-		System.out.print("Bom dia Rapazes");
+
+	private RegistroDePedidos registroDePedidos;
+
+	private RegistroDeUsuarios registroDeUsuarios;
+	
+	public void main(String[] args) {
+		System.out.print("Inicializando...");
 	}
 }

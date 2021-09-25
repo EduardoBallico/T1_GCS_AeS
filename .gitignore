@@ -1,6 +1,12 @@
 #add asta.lock
 *.asta.lock
 
+# VisualStudio files
+*.vscode
+
+# IntelliJ files
+*.idea
+
 # Compiled class file
 *.class
 
