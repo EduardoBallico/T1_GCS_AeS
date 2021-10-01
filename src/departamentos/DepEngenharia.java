@@ -1,3 +1,5 @@
+package departamentos;
+
 public class DepEngenharia extends Departamento{
 
     public DepEngenharia(double valorMaximo) {

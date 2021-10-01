@@ -3,9 +3,7 @@ package models;
 public class Item {
 
 	private String descricao;
-
 	private double valorUnitario;
-
 	private int quantidade;
 
 	public Item(String descricao, double valorUnitario, int quantidade) {
@@ -18,4 +16,16 @@ public class Item {
 		return (valorUnitario * quantidade);
 	}
 
+	@Override
+	public String toString() {
+		return descricao + ": Quantidade:" + quantidade + ", Valor Unitario:" + valorUnitario + ", Valor Total: " + getValorTotal();
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public double getValorUnitario() {
+		return valorUnitario;
+	}
 }

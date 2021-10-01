@@ -3,55 +3,91 @@ package models;
 import java.util.Date;
 
 import departamentos.Departamento;
+import registros.RegistroDePedidos;
 
 public class Pedido {
 
-	private static int contadorDePedidos = 0;
-
-	private int codigo;
-
-	private Usuario funcionario;
-
-	private Departamento departamento;
-
 	private Date data;
-
-	private String status;
-
+	private int codigo;
+	private StatusPedido status;
 	private boolean concluido;
-
-	private static int numeroPedido;
-
-	private listaDeItens listaDeItens;
-
-	/**
-	 * Construtores
-	 */
-
-	public Pedido() {
-		this.codigo = contadorDePedidos++;
-
-	}
+	private Usuario funcionario;
+	private ListaDeItens listaDeItens;
+	private Departamento departamento;
+	private static int contadorDePedidos = 0;
 
 	public Pedido(Usuario funcionario, Departamento departamento) {
 		this.codigo = contadorDePedidos++;
 		this.funcionario = funcionario;
 		this.departamento = departamento;
-		this.data = data;
-
+		this.data = new Date();
+		this.concluido = false;
+		this.status = status.ABERTO;
 	}
 
-	/*
-	 * Metodos
-	 */
+	public boolean inseritItem(Item item){
+		if(listaDeItens.cadastraItem(item)){
+			return true;
+		}
+		return false;
+	}
 
-	public double getValorTotal() {
-		// return listaDeItens.getValorTotalItens();
-		return 0;
+	public boolean removerItem(Item item){
+		if(listaDeItens.removeItem(item)){
+			return true;
+		}
+		return false;
+	}
+
+	public double getValTot() {
+		return listaDeItens.getTotalValorItens();
 	}
 
 	public String getStatus() {
-		return null;
+		return status.name();
 	}
 
+	public boolean aprovar(Usuario funcionario){
+		if(funcionario.administrador()){
+			this.status = status.APROVADO;
+			return true;
+		}
+		return false;
+	}
+
+	public boolean reprovar(Usuario funcionario){
+		if(funcionario.administrador()){
+			this.status = status.REPROVADO;
+			return true;
+		}
+		return false;
+	}
+
+	public String getDataPed(){
+		return data.toString();
+	}
+
+	public int getCodigo(){
+		return codigo;
+	}
+
+	public boolean concluido(){
+		return concluido;
+	}
+
+	public Usuario getFunc(){
+		return funcionario;
+	}
+
+	public Departamento getDepart(){
+		return departamento;
+	}
+
+	@Override
+	public String toString() {
+		String aux = "Pedido " + getCodigo() + "\n";
+		aux+= "Itens pertencentes ao pedido:";
+		aux += listaDeItens.toString();
+		return aux;
+	}
 }

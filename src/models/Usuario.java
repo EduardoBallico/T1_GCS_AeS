@@ -1,3 +1,7 @@
+package models;
+
+import departamentos.Departamento;
+
 public class Usuario {
     private Departamento departamento;
     private int identificador;
