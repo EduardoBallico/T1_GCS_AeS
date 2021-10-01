@@ -1,7 +1,13 @@
+package models;
+
+import java.util.Date;
+
+import departamentos.Departamento;
+
 public class Pedido {
-	
+
 	private static int contadorDePedidos = 0;
-	
+
 	private int codigo;
 
 	private Usuario funcionario;
@@ -16,31 +22,32 @@ public class Pedido {
 
 	private static int numeroPedido;
 
-	private ListaDeItem listaDeItem;
+	private listaDeItens listaDeItens;
 
 	/**
-	 *	Construtores
+	 * Construtores
 	 */
 
-	public Pedido(){
+	public Pedido() {
 		this.codigo = contadorDePedidos++;
-		
+
 	}
 
-	public Pedido(Usuario funcionario, Departamento departamento){
+	public Pedido(Usuario funcionario, Departamento departamento) {
 		this.codigo = contadorDePedidos++;
 		this.funcionario = funcionario;
 		this.departamento = departamento;
 		this.data = data;
-		
+
 	}
-	
+
 	/*
-	 *	Metodos
+	 * Metodos
 	 */
 
 	public double getValorTotal() {
-		return listaDeItem.getValorTotalItens();
+		// return listaDeItens.getValorTotalItens();
+		return 0;
 	}
 
 	public String getStatus() {

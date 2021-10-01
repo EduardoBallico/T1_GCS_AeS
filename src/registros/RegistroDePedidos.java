@@ -1,3 +1,8 @@
+package registros;
+
+import models.Pedido;
+import models.Usuario;
+
 public class RegistroDePedidos {
 
 	private Pedido[] pedidos;

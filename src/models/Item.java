@@ -1,3 +1,5 @@
+package models;
+
 public class Item {
 
 	private String descricao;
@@ -6,14 +8,14 @@ public class Item {
 
 	private int quantidade;
 
-	public Item(String descricao, double valorUnitario, int quantidade){
+	public Item(String descricao, double valorUnitario, int quantidade) {
 		this.descricao = descricao;
 		this.valorUnitario = valorUnitario;
 		this.quantidade = quantidade;
 	}
 
 	public double getValorTotal() {
-		return (ValorUnitario * Quantidade);
+		return (valorUnitario * quantidade);
 	}
 
 }
