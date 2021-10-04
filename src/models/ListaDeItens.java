@@ -25,6 +25,15 @@ public class ListaDeItens {
 		return false;
 	}
 
+	public boolean procuraDescricao(String descricao){
+		for(Item i: itens){
+			if(i.getDescricao().equals(descricao)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public double getTotalValorItens() {
 
 		int total = 0;

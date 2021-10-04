@@ -9,20 +9,38 @@ public class RegistroDePedidos {
 
 	private ArrayList<Pedido> pedidos;
 
-	public Pedido[] listaData(String dataInicial, String dataFinal) {
+	public ArrayList<Pedido> listaData(String dataInicial, String dataFinal) {
 		return null;
 	}
 
-	public Pedido[] buscaSolicitante(Usuario funcionario) {
-		return null;
+	public ArrayList<Pedido> buscaSolicitante(Usuario funcionario) {
+		ArrayList<Pedido> pedSolic = new ArrayList<Pedido>();
+		for(Pedido p: pedidos){
+			if(p.getFunc() == funcionario){
+				pedSolic.add(p);
+			}
+		}
+		return pedSolic;
 	}
 
-	public Pedido[] buscaDescricao(String descricao) {
-		return null;
+	public ArrayList<Pedido> buscaDescricao(String descricao) {
+		ArrayList<Pedido> pedDesc = new ArrayList<Pedido>();
+		for(Pedido p: pedidos){
+			if(p.getItem(descricao)){
+				pedDesc.add(p);
+			}
+		}
+		return pedDesc;
 	}
 
-	public Pedido[] buscaAberto() {
-		return null;
+	public ArrayList<Pedido> buscaAberto() {
+		ArrayList<Pedido> pedAberto = new ArrayList<Pedido>();
+		for(Pedido p: pedidos){
+			if(!p.concluido()){
+				pedAberto.add(p);
+			}
+		}
+		return pedAberto;
 	}
 
 	public boolean aprovar(int codigo, Usuario usuario) {

@@ -28,4 +28,8 @@ public class Item {
 	public double getValorUnitario() {
 		return valorUnitario;
 	}
+
+	public String getDescricao() {
+		return descricao;
+	}
 }

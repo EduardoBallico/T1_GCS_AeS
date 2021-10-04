@@ -3,7 +3,6 @@ package models;
 import java.util.Date;
 
 import departamentos.Departamento;
-import registros.RegistroDePedidos;
 
 public class Pedido {
 
@@ -39,6 +38,13 @@ public class Pedido {
 		return false;
 	}
 
+	public boolean getItem(String descricao){
+		if(listaDeItens.procuraDescricao(descricao)){
+			return true;
+		}
+		return false;
+	}
+
 	public double getValTot() {
 		return listaDeItens.getTotalValorItens();
 	}
@@ -50,6 +56,7 @@ public class Pedido {
 	public boolean aprovar(Usuario funcionario){
 		if(funcionario.administrador()){
 			this.status = status.APROVADO;
+			this.concluido = true;
 			return true;
 		}
 		return false;
@@ -58,6 +65,7 @@ public class Pedido {
 	public boolean reprovar(Usuario funcionario){
 		if(funcionario.administrador()){
 			this.status = status.REPROVADO;
+			this.concluido = true;
 			return true;
 		}
 		return false;
