@@ -3,14 +3,13 @@ package models;
 import java.util.ArrayList;
 
 public class ListaDeItens {
-
 	private ArrayList<Item> itens;
 
 	public ListaDeItens() {
 		itens = new ArrayList<>();
 	}
 
-	public boolean cadastraItem(Item item){
+	public boolean IncluirItem(Item item){
 		if(item.getQuantidade()<=0 || item.getValorTotal()<=0){
 			return false;
 		}
@@ -25,7 +24,7 @@ public class ListaDeItens {
 		return false;
 	}
 
-	public boolean procuraDescricao(String descricao){
+	public boolean procuraPorDescricao(String descricao){
 		for(Item i: itens){
 			if(i.getDescricao().equals(descricao)){
 				return true;
@@ -35,7 +34,6 @@ public class ListaDeItens {
 	}
 
 	public double getTotalValorItens() {
-
 		int total = 0;
 
 		for (Item i : itens) {

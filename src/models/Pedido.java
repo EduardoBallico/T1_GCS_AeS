@@ -5,27 +5,27 @@ import java.util.Date;
 import departamentos.Departamento;
 
 public class Pedido {
-
-	private Date data;
 	private int codigo;
-	private StatusPedido status;
-	private boolean concluido;
 	private Usuario funcionario;
 	private ListaDeItens listaDeItens;
 	private Departamento departamento;
-	private static int contadorDePedidos = 0;
+	private Date data;
+	private StatusPedido status;
+	private boolean concluido;
+	private static int contadorDePedidos = 0; //Incrementa a cada novo pedido criado
 
-	public Pedido(Usuario funcionario, Departamento departamento) {
+	public Pedido(Usuario funcionario, Departamento departamento, ListaDeItens listaItens) {
 		this.codigo = contadorDePedidos++;
 		this.funcionario = funcionario;
 		this.departamento = departamento;
-		this.data = new Date();
+		this.data = new Date(); //Registra a data de criação
 		this.concluido = false;
 		this.status = status.ABERTO;
+		this.listaDeItens = listaItens;
 	}
 
-	public boolean inseritItem(Item item){
-		if(listaDeItens.cadastraItem(item)){
+	public boolean inserirItem(Item item){
+		if(listaDeItens.incluirItem(item)){
 			return true;
 		}
 		return false;
@@ -53,7 +53,7 @@ public class Pedido {
 		return status.name();
 	}
 
-	public boolean aprovar(Usuario funcionario){
+	public boolean aprovar(Usuario funcionario){ //Informar o usuario atual que esta tentando aprovar o pedido
 		if(funcionario.administrador()){
 			this.status = status.APROVADO;
 			this.concluido = true;
@@ -62,7 +62,7 @@ public class Pedido {
 		return false;
 	}
 
-	public boolean reprovar(Usuario funcionario){
+	public boolean reprovar(Usuario funcionario){ //Informar o usuario atual que esta tentando reprovar o pedido
 		if(funcionario.administrador()){
 			this.status = status.REPROVADO;
 			this.concluido = true;

@@ -5,7 +5,29 @@ import java.util.ArrayList;
 import models.Usuario;
 
 public class RegistroDeUsuarios {
-    ArrayList<Usuario> usuarios = new ArrayList<>();
+    ArrayList<Usuario> usuarios;
+
+    public RegistroDeUsuarios(){
+        usuarios = new ArrayList<>();
+    }
+
+    public boolean insereUsuario(Usuario us){
+        if(us == null){
+            return false;
+        }
+        usuarios.add(us);
+        return true;
+    }
+
+    public boolean removeUsuario(int identificador){
+        for(int i=0; i<usuarios.size(); i++){
+            if(usuarios.get(i).getIdentificador() == identificador){
+                usuarios.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public String exibeListaUsuarios() {
         String aux = "Lista de Funcionários cadastrados\n";
