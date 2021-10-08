@@ -9,24 +9,24 @@ public class ListaDeItens {
 		itens = new ArrayList<>();
 	}
 
-	public boolean IncluirItem(Item item){
-		if(item.getQuantidade()<=0 || item.getValorTotal()<=0){
+	public boolean incluirItem(Item item) {
+		if (item.getQuantidade() <= 0 || item.getValorTotal() <= 0) {
 			return false;
 		}
 		itens.add(item);
 		return true;
 	}
 
-	public boolean removeItem(Item item){
-		if(itens.remove(item)){
+	public boolean removeItem(Item item) {
+		if (itens.remove(item)) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean procuraPorDescricao(String descricao){
-		for(Item i: itens){
-			if(i.getDescricao().equals(descricao)){
+	public boolean procuraPorDescricao(String descricao) {
+		for (Item i : itens) {
+			if (i.getDescricao().equals(descricao)) {
 				return true;
 			}
 		}
@@ -44,9 +44,9 @@ public class ListaDeItens {
 	}
 
 	@Override
-	public String toString(){
-		String aux="";
-		for(int i=0; i<itens.size(); i++){
+	public String toString() {
+		String aux = "";
+		for (int i = 0; i < itens.size(); i++) {
 			aux += itens.get(i).toString();
 		}
 		return aux;

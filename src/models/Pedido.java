@@ -12,34 +12,34 @@ public class Pedido {
 	private Date data;
 	private StatusPedido status;
 	private boolean concluido;
-	private static int contadorDePedidos = 0; //Incrementa a cada novo pedido criado
+	private static int contadorDePedidos = 0; // Incrementa a cada novo pedido criado
 
 	public Pedido(Usuario funcionario, Departamento departamento, ListaDeItens listaItens) {
 		this.codigo = contadorDePedidos++;
 		this.funcionario = funcionario;
 		this.departamento = departamento;
-		this.data = new Date(); //Registra a data de criação
+		this.data = new Date(); // Registra a data de criação
 		this.concluido = false;
-		this.status = status.ABERTO;
+		this.status = StatusPedido.ABERTO;
 		this.listaDeItens = listaItens;
 	}
 
-	public boolean inserirItem(Item item){
-		if(listaDeItens.incluirItem(item)){
+	public boolean inserirItem(Item item) {
+		if (listaDeItens.incluirItem(item)) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean removerItem(Item item){
-		if(listaDeItens.removeItem(item)){
+	public boolean removerItem(Item item) {
+		if (listaDeItens.removeItem(item)) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean getItem(String descricao){
-		if(listaDeItens.procuraDescricao(descricao)){
+	public boolean getItem(String descricao) {
+		if (listaDeItens.procuraPorDescricao(descricao)) {
 			return true;
 		}
 		return false;
@@ -53,48 +53,48 @@ public class Pedido {
 		return status.name();
 	}
 
-	public boolean aprovar(Usuario funcionario){ //Informar o usuario atual que esta tentando aprovar o pedido
-		if(funcionario.administrador()){
-			this.status = status.APROVADO;
+	public boolean aprovar(Usuario funcionario) { // Informar o usuario atual que esta tentando aprovar o pedido
+		if (funcionario.administrador()) {
+			this.status = StatusPedido.APROVADO;
 			this.concluido = true;
 			return true;
 		}
 		return false;
 	}
 
-	public boolean reprovar(Usuario funcionario){ //Informar o usuario atual que esta tentando reprovar o pedido
-		if(funcionario.administrador()){
-			this.status = status.REPROVADO;
+	public boolean reprovar(Usuario funcionario) { // Informar o usuario atual que esta tentando reprovar o pedido
+		if (funcionario.administrador()) {
+			this.status = StatusPedido.REPROVADO;
 			this.concluido = true;
 			return true;
 		}
 		return false;
 	}
 
-	public String getDataPed(){
+	public String getDataPed() {
 		return data.toString();
 	}
 
-	public int getCodigo(){
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public boolean concluido(){
+	public boolean concluido() {
 		return concluido;
 	}
 
-	public Usuario getFunc(){
+	public Usuario getFunc() {
 		return funcionario;
 	}
 
-	public Departamento getDepart(){
+	public Departamento getDepart() {
 		return departamento;
 	}
 
 	@Override
 	public String toString() {
 		String aux = "Pedido " + getCodigo() + "\n";
-		aux+= "Itens pertencentes ao pedido:";
+		aux += "Itens pertencentes ao pedido:";
 		aux += listaDeItens.toString();
 		return aux;
 	}
