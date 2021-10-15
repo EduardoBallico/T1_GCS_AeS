@@ -4,13 +4,15 @@ import departamentos.Departamento;
 
 public class Usuario {
     private Departamento departamento;
+    private static int geraIdentif=1111;
     private int identificador;
     private String nome;
     private boolean administrador;
 
-    public Usuario(Departamento departamento, int identificador, String nome, boolean ehadministrador) {
+    public Usuario(Departamento departamento, String nome, boolean ehadministrador) {
         this.departamento = departamento;
-        this.identificador = identificador;
+        this.identificador = geraIdentif;
+        geraIdentif++;
         this.nome = nome;
         this.administrador = ehadministrador;
     }

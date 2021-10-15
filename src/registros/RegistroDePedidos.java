@@ -9,6 +9,10 @@ public class RegistroDePedidos {
 
 	private ArrayList<Pedido> pedidos;
 
+	public RegistroDePedidos(){
+		pedidos = new ArrayList<Pedido>();
+	}
+
 	public ArrayList<Pedido> listaData(String dataInicial, String dataFinal) {
 		return null;
 	}
@@ -21,6 +25,14 @@ public class RegistroDePedidos {
 			}
 		}
 		return pedSolic;
+	}
+
+	public boolean inserePedido(Pedido pedAux){
+		if(pedAux == null){
+			return false;
+		}
+		pedidos.add(pedAux);
+		return true;
 	}
 
 	public ArrayList<Pedido> buscaDescricao(String descricao) {
