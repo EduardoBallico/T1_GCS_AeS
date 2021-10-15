@@ -11,10 +11,10 @@ import models.Usuario;
 public class App {
 	public static void main(String[] args) {
 		System.out.print("Inicializando...");
-
+		preencheDados();
 	}
 
-	public void preencheDados(){
+	public static void preencheDados(){
 		Departamento dep1 = new DepTI(50000);
 		Departamento dep2 = new DepComercial(80000);
 		Departamento dep3 = new DepEngenharia(90000);
@@ -26,20 +26,20 @@ public class App {
 		Usuario funcionario4 = new Usuario(dep4, 1114, "Arthur", true);
 
 		ListaDeItens list1 = new ListaDeItens();
-		list1.IncluirItem(new Item("Computador Intel i7, RTX 3080, 32gb de ram", 15000, 1));
-		list1.IncluirItem(new Item("Monitor 17'", 1750, 2));
+		list1.incluirItem(new Item("Computador Intel i7, RTX 3080, 32gb de ram", 15000, 1));
+		list1.incluirItem(new Item("Monitor 17'", 1750, 2));
 
 		ListaDeItens list2 = new ListaDeItens();
-		list2.IncluirItem(new Item("Telefone Comercial", 250, 220));
-		list2.IncluirItem(new Item("Central de Comunicação", 5000, 5));
+		list2.incluirItem(new Item("Telefone Comercial", 250, 220));
+		list2.incluirItem(new Item("Central de Comunicação", 5000, 5));
 
 		ListaDeItens list3 = new ListaDeItens();
-		list3.IncluirItem(new Item("Caminhao Mercedes-Benz GenH2", 330000, 1));
+		list3.incluirItem(new Item("Caminhao Mercedes-Benz GenH2", 330000, 1));
 
 		ListaDeItens list4 = new ListaDeItens();
-		list4.IncluirItem(new Item("Computador de Escritório", 2500, 10));
-		list4.IncluirItem(new Item("Impressora HP Series-T", 1250, 10));
-		list4.IncluirItem(new Item("Folhas A4 para impressora", 19, 200));
+		list4.incluirItem(new Item("Computador de Escritório", 2500, 10));
+		list4.incluirItem(new Item("Impressora HP Series-T", 1250, 10));
+		list4.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
 
 
 		Pedido ped1 = new Pedido(funcionario1, dep1, list1);
