@@ -1,26 +1,25 @@
-import java.lang.reflect.Array;
-
 import departamentos.*;
 import models.*;
 import registros.RegistroDePedidos;
+import registros.RegistroDeUsuarios;
+
 import java.util.ArrayList;
 
 public class App {
+
+	private static RegistroDePedidos registroDePedidos = new RegistroDePedidos();
+	private static RegistroDeUsuarios registroDeUsuarios = new RegistroDeUsuarios();
 	public static void main(String[] args) {
-		RegistroDePedidos registro = new RegistroDePedidos();
-		System.out.println("Inicializando...");
-		ArrayList<Pedido> listAux = preencheDados();
-		System.out.println(listAux.size());
-		for(int i=0; i<listAux.size(); i++){
-			registro.inserePedido(listAux.get(i));
-		}
-		listAux.clear();		
-		System.out.println(registro.buscaAberto());
+
+		System.out.println("Inicializando...");	
+
+		preencheDados();
+		System.out.println(registroDePedidos.buscaAberto());
 		
 	}
 
-	public static ArrayList<Pedido> preencheDados(){
-		ArrayList<Pedido> listaAux = new ArrayList<Pedido>();
+	public static void preencheDados(){
+
 		Departamento depTi = new DepTI(150000);
 		Departamento depComercial = new DepComercial(90000);
 		Departamento depEngenharia = new DepEngenharia(170000);
@@ -28,22 +27,30 @@ public class App {
 		Departamento depManutencao = new DepManutencao(50000);
 		Departamento depRh = new DepRH(35000);
 
-		Usuario funcionario1 = new Usuario(depTi, "Eduardo", true);
-		Usuario funcionario2 = new Usuario(depComercial, "Guilherme", false);
-		Usuario funcionario3 = new Usuario(depEngenharia, "Vinicius", false);
-		Usuario funcionario4 = new Usuario(depFinanceiro, "Arthur", true);
-		Usuario funcionario5 = new Usuario(depManutencao, "André", true);
-		Usuario funcionario6 = new Usuario(depRh, "Leandro", true);
-		Usuario funcionario7 = new Usuario(depTi, "Daniel", true);
-		Usuario funcionario8 = new Usuario(depComercial, "Pedro", true);
-		Usuario funcionario9 = new Usuario(depEngenharia, "Eduarda", true);
-		Usuario funcionario10 = new Usuario(depFinanceiro, "Vitoria", true);
-		Usuario funcionario11 = new Usuario(depManutencao, "Gertrudes", true);
-		Usuario funcionario12 = new Usuario(depRh, "Carla", true);
-		Usuario funcionario13 = new Usuario(depTi, "Claudia", true);
-		Usuario funcionario14 = new Usuario(depComercial, "Marisa", true);
-		Usuario funcionario15 = new Usuario(depEngenharia, "Eveline", true);
+		// Cria e Registra os funcionarios;
+		Usuario[] funcs = new Usuario[14];
 
+		funcs[0] = new Usuario(depTi, "Eduardo", true);
+		funcs[1] = new Usuario(depComercial, "Guilherme", false);
+		funcs[2] = new Usuario(depEngenharia, "Vinicius", false);
+		funcs[3] = new Usuario(depFinanceiro, "Arthur", true);
+		funcs[4] = new Usuario(depManutencao, "André", true);
+		funcs[5] = new Usuario(depRh, "Leandro", true);
+		funcs[6] = new Usuario(depTi, "Daniel", true);
+		funcs[7] = new Usuario(depComercial, "Pedro", true);
+		funcs[8] = new Usuario(depEngenharia, "Eduarda", true);
+		funcs[9] = new Usuario(depFinanceiro, "Vitoria", true);
+		funcs[10] = new Usuario(depManutencao, "Gertrudes", true);
+		funcs[11] = new Usuario(depRh, "Carla", true);
+		funcs[12] = new Usuario(depTi, "Claudia", true);
+		funcs[13] = new Usuario(depComercial, "Marisa", true);
+		funcs[14] = new Usuario(depEngenharia, "Eveline", true);
+
+		for (Usuario f : funcs){
+			registroDeUsuarios.insereUsuario(f);
+		}
+
+		// Cria listas de itens
 		ListaDeItens list1 = new ListaDeItens();
 		list1.incluirItem(new Item("Computador Intel i7, RTX 3080, 32gb de ram", 15000, 1));
 		list1.incluirItem(new Item("Monitor 17'", 1750, 2));
@@ -68,19 +75,19 @@ public class App {
 		ListaDeItens list6 = new ListaDeItens();
 		list6.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
 
-		Pedido ped1 = new Pedido(funcionario1, depTi, list1);
-		listaAux.add(ped1);
-		Pedido ped2 = new Pedido(funcionario2, depComercial, list2);
-		listaAux.add(ped2);
-		Pedido ped3 = new Pedido(funcionario3, depEngenharia, list3);
-		listaAux.add(ped3);
-		Pedido ped4 = new Pedido(funcionario4, depFinanceiro, list4);
-		listaAux.add(ped4);
-		Pedido ped5 = new Pedido(funcionario4, depManutencao, list5);
-		listaAux.add(ped5);
-		Pedido ped6 = new Pedido(funcionario4, depRh, list6);
-		listaAux.add(ped6);
+		// Cria e Registra
+		Pedido[] ped = new Pedido[6];
+
+		ped[0] = new Pedido(funcs[1], depTi, list1);
+		ped[1] = new Pedido(funcs[2], depComercial, list2);
+		ped[2] = new Pedido(funcs[3], depEngenharia, list3);
+		ped[3] = new Pedido(funcs[4], depFinanceiro, list4);
+		ped[4] = new Pedido(funcs[5], depManutencao, list5);
+		ped[5] = new Pedido(funcs[6], depRh, list6);
+
+		for (Pedido p : ped){
+			registroDePedidos.inserePedido(p);
+		}
 		
-		return listaAux;
 	}
 }
