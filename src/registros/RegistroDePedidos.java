@@ -15,17 +15,24 @@ public class RegistroDePedidos {
 
 	private ArrayList<Pedido> pedidos;
 
-	// recebe datas string no formato: dd/mm/yyyy
-	public ArrayList<Pedido> listaDatasNoPeriodo(String dataInicial, String dataFinal) {
+	// recebe datas string no formato: dd/MM/yyyy
+	public ArrayList<Pedido> listaPedidosNoPeriodo(String dataInicial, String dataFinal) {
 		// informa os pedidos entre data inicial e data final
 		try {
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			Date dataInic = formatter.parse(dataInicial);
 			Date dataFin = formatter.parse(dataFinal);
+			ArrayList<Pedido> listAux = new ArrayList<>();
+			for (Pedido p : pedidos) {
+				Date dataPed = p.getDataPed();
+				if (dataPed.before(dataFin) && dataPed.after(dataInic)) {
+					listAux.add(p);
+				}
+			}
+			return listAux;
 		} catch (Exception e) {
 			return null;
 		}
-		return null;
 	}
 
 	public ArrayList<Pedido> buscaSolicitante(Usuario funcionario) {
@@ -81,6 +88,8 @@ public class RegistroDePedidos {
 	}
 
 	public String estatisticasGerais(Usuario usuario) {
+		String resp = "";
+
 		return null;
 	}
 }

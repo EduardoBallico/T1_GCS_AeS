@@ -12,9 +12,10 @@ public class App {
 	public static void main(String[] args) {
 		System.out.print("Inicializando...");
 		preencheDados();
+
 	}
 
-	public static void preencheDados(){
+	public static void preencheDados() {
 		Departamento dep1 = new DepTI(50000);
 		Departamento dep2 = new DepComercial(80000);
 		Departamento dep3 = new DepEngenharia(90000);
@@ -40,7 +41,6 @@ public class App {
 		list4.incluirItem(new Item("Computador de Escritório", 2500, 10));
 		list4.incluirItem(new Item("Impressora HP Series-T", 1250, 10));
 		list4.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
-
 
 		Pedido ped1 = new Pedido(funcionario1, dep1, list1);
 		Pedido ped2 = new Pedido(funcionario2, dep2, list2);

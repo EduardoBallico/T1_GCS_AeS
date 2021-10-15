@@ -71,8 +71,8 @@ public class Pedido {
 		return false;
 	}
 
-	public String getDataPed() {
-		return data.toString();
+	public Date getDataPed() {
+		return data;
 	}
 
 	public int getCodigo() {
