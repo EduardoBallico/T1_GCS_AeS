@@ -55,8 +55,8 @@ public class Pedido {
 		return listaDeItens.getTotalValorItens();
 	}
 
-	public String getStatus() {
-		return status.name();
+	public StatusPedido getStatus() {
+		return status;
 	}
 
 	public boolean aprovar(Usuario funcionario) { // Informar o usuario atual que esta tentando aprovar o pedido
@@ -77,8 +77,8 @@ public class Pedido {
 		return false;
 	}
 
-	public String getDataPed() {
-		return data.toString();
+	public Date getDataPed() {
+		return data;
 	}
 
 	public int getCodigo() {
