@@ -2,8 +2,8 @@ package departamentos;
 
 public class DepEngenharia extends Departamento{
 
-    public DepEngenharia(double valorMaximo) {
-        super(valorMaximo);
+    public DepEngenharia(int identificador, double valorMaximo) {
+        super(identificador, valorMaximo);
     }
     
 }

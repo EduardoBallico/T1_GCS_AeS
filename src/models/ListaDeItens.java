@@ -47,7 +47,7 @@ public class ListaDeItens {
 	public String toString() {
 		String aux = "";
 		for (int i = 0; i < itens.size(); i++) {
-			aux += itens.get(i).toString();
+			aux += i+1  + ": " + itens.get(i).toString() + "\n";
 		}
 		return aux;
 	}

@@ -49,6 +49,14 @@ public class RegistroDePedidos {
 		return pedSolic;
 	}
 
+	public boolean inserePedido(Pedido pedAux){
+		if(pedAux == null){
+			return false;
+		}
+		pedidos.add(pedAux);
+		return true;
+	}
+
 	public ArrayList<Pedido> buscaDescricao(String descricao) {
 		ArrayList<Pedido> pedDesc = new ArrayList<Pedido>();
 		for (Pedido p : pedidos) {

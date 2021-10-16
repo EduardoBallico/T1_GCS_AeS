@@ -12,7 +12,7 @@ public class Pedido {
 	private Date data;
 	private StatusPedido status;
 	private boolean concluido;
-	private static int contadorDePedidos = 0; // Incrementa a cada novo pedido criado
+	private static int contadorDePedidos = 1; // Incrementa a cada novo pedido criado
 
 	public Pedido(Usuario funcionario, Departamento departamento, ListaDeItens listaItens) {
 		this.codigo = contadorDePedidos++;
@@ -25,6 +25,12 @@ public class Pedido {
 	}
 
 	public boolean inserirItem(Item item) {
+		if(item.getValorTotal() > departamento.getValorMaximo()){
+			return false;
+		}
+		if(item.getValorTotal() + getValTot() > departamento.getValorMaximo()){ //Regra de negócio nova
+			return false;
+		}
 		if (listaDeItens.incluirItem(item)) {
 			return true;
 		}
@@ -94,8 +100,8 @@ public class Pedido {
 	@Override
 	public String toString() {
 		String aux = "Pedido " + getCodigo() + "\n";
-		aux += "Itens pertencentes ao pedido:";
-		aux += listaDeItens.toString();
+		aux += "Itens pertencentes ao pedido:\n";
+		aux += listaDeItens.toString() + "\n\n";
 		return aux;
 	}
 }
