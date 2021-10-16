@@ -1,53 +1,57 @@
 import departamentos.*;
 import models.*;
-import registros.RegistroDePedidos;
-import registros.RegistroDeUsuarios;
+import registros.*;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
 
-	private static RegistroDePedidos registroDePedidos = new RegistroDePedidos();
-	private static RegistroDeUsuarios registroDeUsuarios = new RegistroDeUsuarios();
+	private static RegistroDePedidos rPedidos = new RegistroDePedidos();
+	private static RegistroDeUsuarios rUsuarios = new RegistroDeUsuarios();
+	private static RegistroDeDepartamentos rDepartamentos = new RegistroDeDepartamentos();
+	
 	public static void main(String[] args) {
 
 		System.out.println("Inicializando...");	
 
 		preencheDados();
-		System.out.println(registroDePedidos.buscaAberto());
+		executar();
 		
 	}
 
 	public static void preencheDados(){
 
-		Departamento depTi = new DepTI(150000);
-		Departamento depComercial = new DepComercial(90000);
-		Departamento depEngenharia = new DepEngenharia(170000);
-		Departamento depFinanceiro = new DepFinanceiro(00);
-		Departamento depManutencao = new DepManutencao(50000);
-		Departamento depRh = new DepRH(35000);
+		ArrayList<Departamento> deps = new ArrayList<Departamento>();
+
+		deps.add(new DepTI(0, 150000));
+		deps.add(new DepComercial(1, 90000));
+		deps.add(new DepEngenharia(2, 170000));
+		deps.add(new DepFinanceiro(3, 00));
+		deps.add(new DepManutencao(4, 50000));
+		deps.add(new DepRH(5, 35000));
 
 		// Cria e Registra os funcionarios;
-		Usuario[] funcs = new Usuario[14];
+		ArrayList<Usuario> funcs = new ArrayList<Usuario>();
 
-		funcs[0] = new Usuario(depTi, "Eduardo", true);
-		funcs[1] = new Usuario(depComercial, "Guilherme", false);
-		funcs[2] = new Usuario(depEngenharia, "Vinicius", false);
-		funcs[3] = new Usuario(depFinanceiro, "Arthur", true);
-		funcs[4] = new Usuario(depManutencao, "André", true);
-		funcs[5] = new Usuario(depRh, "Leandro", true);
-		funcs[6] = new Usuario(depTi, "Daniel", true);
-		funcs[7] = new Usuario(depComercial, "Pedro", true);
-		funcs[8] = new Usuario(depEngenharia, "Eduarda", true);
-		funcs[9] = new Usuario(depFinanceiro, "Vitoria", true);
-		funcs[10] = new Usuario(depManutencao, "Gertrudes", true);
-		funcs[11] = new Usuario(depRh, "Carla", true);
-		funcs[12] = new Usuario(depTi, "Claudia", true);
-		funcs[13] = new Usuario(depComercial, "Marisa", true);
-		funcs[14] = new Usuario(depEngenharia, "Eveline", true);
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(0), "Eduardo", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Guilherme", false));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", false));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(3), "Arthur", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(4), "André", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(5), "Leandro", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(0), "Daniel", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Pedro", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eduarda", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(3), "Vitoria", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(4), "Gertrudes", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(5), "Carla", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(0), "Claudia", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Marisa", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", true));
 
 		for (Usuario f : funcs){
-			registroDeUsuarios.insereUsuario(f);
+			rUsuarios.insereUsuario(f);
 		}
 
 		// Cria listas de itens
@@ -76,18 +80,47 @@ public class App {
 		list6.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
 
 		// Cria e Registra
-		Pedido[] ped = new Pedido[6];
+		ArrayList<Pedido> ped = new ArrayList<Pedido>();
 
-		ped[0] = new Pedido(funcs[1], depTi, list1);
-		ped[1] = new Pedido(funcs[2], depComercial, list2);
-		ped[2] = new Pedido(funcs[3], depEngenharia, list3);
-		ped[3] = new Pedido(funcs[4], depFinanceiro, list4);
-		ped[4] = new Pedido(funcs[5], depManutencao, list5);
-		ped[5] = new Pedido(funcs[6], depRh, list6);
+		ped.add(new Pedido(funcs.get(0), rDepartamentos.pesquisaDepartamento(0), list1));
+		ped.add(new Pedido(funcs.get(1), rDepartamentos.pesquisaDepartamento(1), list2));
+		ped.add(new Pedido(funcs.get(2), rDepartamentos.pesquisaDepartamento(2), list3));
+		ped.add(new Pedido(funcs.get(3), rDepartamentos.pesquisaDepartamento(3), list4));
+		ped.add(new Pedido(funcs.get(4), rDepartamentos.pesquisaDepartamento(4), list5));
+		ped.add(new Pedido(funcs.get(5), rDepartamentos.pesquisaDepartamento(5), list6));
 
 		for (Pedido p : ped){
-			registroDePedidos.inserePedido(p);
+			rPedidos.inserePedido(p);
 		}
-		
+
+	}
+
+	private static void executar(){
+		Scanner in = new Scanner(System.in);
+
+		while(true){
+			exibeMenu();
+
+			int input = Integer.parseInt(in.nextLine());
+
+			switch (input) {
+				case 1 -> {
+					System.out.println(rPedidos.buscaAberto());
+				}
+				case 0 -> {
+					System.out.println("Programa Finalizado!");
+					return;
+				}
+				
+				default -> {
+					System.out.println("Opção invalida!");
+				}
+			}
+		}
+	}
+
+	private static void exibeMenu(){
+		System.out.println("1. Exibe pedidos em Aberto");
+		System.out.println("0. Sair");
 	}
 }
