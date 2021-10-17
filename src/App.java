@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class App {
 
-	private static RegistroDePedidos rPedidos = new RegistroDePedidos();
+	private static RegistroDePedidos rPedidos;
 	private static RegistroDeUsuarios rUsuarios = new RegistroDeUsuarios();
 	private static RegistroDeDepartamentos rDepartamentos = new RegistroDeDepartamentos();
 	
@@ -38,7 +38,7 @@ public class App {
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Guilherme", false));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", false));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(3), "Arthur", true));
-		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(4), "André", true));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(4), "Andre", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(5), "Leandro", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(0), "Daniel", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Pedro", true));
@@ -89,10 +89,7 @@ public class App {
 		ped.add(new Pedido(funcs.get(4), rDepartamentos.pesquisaDepartamento(4), list5));
 		ped.add(new Pedido(funcs.get(5), rDepartamentos.pesquisaDepartamento(5), list6));
 
-		for (Pedido p : ped){
-			rPedidos.inserePedido(p);
-		}
-
+		rPedidos = new RegistroDePedidos(ped);
 	}
 
 	private static void executar(){
@@ -106,6 +103,12 @@ public class App {
 			switch (input) {
 				case 1 -> {
 					System.out.println(rPedidos.buscaAberto());
+				}
+				case 2 -> {
+					System.out.println("Digite o nome do Funcionario:");
+					String nome = in.nextLine();
+					Usuario u = rUsuarios.pesquisaUsuario(nome);
+					System.out.println(rPedidos.estatisticasGerais(u));
 				}
 				case 0 -> {
 					System.out.println("Programa Finalizado!");
@@ -121,6 +124,7 @@ public class App {
 
 	private static void exibeMenu(){
 		System.out.println("1. Exibe pedidos em Aberto");
+		System.out.println("2. Exibe estatisticas gerais do funcionario");
 		System.out.println("0. Sair");
 	}
 }
