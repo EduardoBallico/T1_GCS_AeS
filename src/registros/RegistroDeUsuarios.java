@@ -29,6 +29,24 @@ public class RegistroDeUsuarios {
         return false;
     }
 
+    public Usuario pesquisaUsuario(int id){
+        for(Usuario u : usuarios){
+            if(u.getIdentificador() == id){
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public Usuario pesquisaUsuario(String nome){
+        for(Usuario u : usuarios){
+            if(u.getNome() == nome){
+                return u;
+            }
+        }
+        return null;
+    }
+
     public String exibeListaUsuarios() {
         String aux = "Lista de Funcionários cadastrados\n";
         if (usuarios.size() <= 0) {
