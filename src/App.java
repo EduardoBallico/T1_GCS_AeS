@@ -10,6 +10,8 @@ public class App {
 	private static RegistroDePedidos rPedidos;
 	private static RegistroDeUsuarios rUsuarios = new RegistroDeUsuarios();
 	private static RegistroDeDepartamentos rDepartamentos = new RegistroDeDepartamentos();
+
+	private static Usuario usuarioAtivo;
 	
 	public static void main(String[] args) {
 
@@ -31,12 +33,16 @@ public class App {
 		deps.add(new DepManutencao(4, 50000));
 		deps.add(new DepRH(5, 35000));
 
+		for (Departamento d : deps){
+			rDepartamentos.insereDepartamento(d);
+		}
+
 		// Cria e Registra os funcionarios;
 		ArrayList<Usuario> funcs = new ArrayList<Usuario>();
 
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(0), "Eduardo", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(1), "Guilherme", false));
-		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", false));
+		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(3), "Arthur", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(4), "Andre", true));
 		funcs.add(new Usuario(rDepartamentos.pesquisaDepartamento(5), "Leandro", true));
@@ -82,12 +88,12 @@ public class App {
 		// Cria e Registra
 		ArrayList<Pedido> ped = new ArrayList<Pedido>();
 
-		ped.add(new Pedido(funcs.get(0), rDepartamentos.pesquisaDepartamento(0), list1));
-		ped.add(new Pedido(funcs.get(1), rDepartamentos.pesquisaDepartamento(1), list2));
-		ped.add(new Pedido(funcs.get(2), rDepartamentos.pesquisaDepartamento(2), list3));
-		ped.add(new Pedido(funcs.get(3), rDepartamentos.pesquisaDepartamento(3), list4));
-		ped.add(new Pedido(funcs.get(4), rDepartamentos.pesquisaDepartamento(4), list5));
-		ped.add(new Pedido(funcs.get(5), rDepartamentos.pesquisaDepartamento(5), list6));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(0), rDepartamentos.pesquisaDepartamento(0), list1));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(1), rDepartamentos.pesquisaDepartamento(1), list2));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(2), rDepartamentos.pesquisaDepartamento(2), list3));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(3), rDepartamentos.pesquisaDepartamento(3), list4));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(4), rDepartamentos.pesquisaDepartamento(4), list5));
+		ped.add(new Pedido(rUsuarios.pesquisaUsuario(5), rDepartamentos.pesquisaDepartamento(5), list6));
 
 		rPedidos = new RegistroDePedidos(ped);
 	}
@@ -102,19 +108,24 @@ public class App {
 
 			switch (input) {
 				case 1 -> {
-					System.out.println(rPedidos.buscaAberto());
+					System.out.println("Digite o código do usuário desejado:");
+					System.out.println(rUsuarios.exibeListaUsuarios());
+					int id = Integer.parseInt(in.nextLine());
+					usuarioAtivo = rUsuarios.pesquisaUsuario(id);
 				}
 				case 2 -> {
+					System.out.println(rPedidos.buscaAberto());
+				}
+				case 3 -> {
 					System.out.println("Digite o nome do Funcionario:");
 					String nome = in.nextLine();
 					Usuario u = rUsuarios.pesquisaUsuario(nome);
 					System.out.println(rPedidos.estatisticasGerais(u));
-				}
+				}	
 				case 0 -> {
 					System.out.println("Programa Finalizado!");
 					return;
 				}
-				
 				default -> {
 					System.out.println("Opção invalida!");
 				}
@@ -123,8 +134,9 @@ public class App {
 	}
 
 	private static void exibeMenu(){
-		System.out.println("1. Exibe pedidos em Aberto");
-		System.out.println("2. Exibe estatisticas gerais do funcionario");
+		System.out.println("1. Selecione seu usuário");
+		System.out.println("2. Exibe pedidos em Aberto");
+		System.out.println("3. Exibe estatisticas gerais do funcionario");
 		System.out.println("0. Sair");
 	}
 }

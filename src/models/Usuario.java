@@ -13,7 +13,7 @@ public class Usuario {
         this.departamento = departamento;
         this.identificador = geraIdentif;
         geraIdentif++;
-        this.nome = nome;
+        this.nome = nome.toUpperCase();
         this.administrador = ehadministrador;
     }
 
