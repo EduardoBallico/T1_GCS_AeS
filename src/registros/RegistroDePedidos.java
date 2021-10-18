@@ -106,19 +106,26 @@ public class RegistroDePedidos {
 			else if (p.getStatus() == StatusPedido.REPROVADO) pedidosReprovados++;
 			totalPedidos++;
 		}
-		String totalPedidosDesc = "Total de pedidos: "+totalPedidos
-		+"\n	Pedidos aprovados: "+pedidosAprovados+"("+(((double)totalPedidos/pedidosAprovados)*100)+"%)\n	Pedidos reprovados: "+pedidosAprovados+"("+(((double)totalPedidos/pedidosReprovados)*100)+"%)";
+		String totalPedidosDesc = "Total de pedidos: "+totalPedidos;
+		totalPedidosDesc += pedidosAprovados != 0 ?  "\n	Pedidos aprovados: "+pedidosAprovados+" ("+(((double)totalPedidos/pedidosAprovados)*100)+"%)" : "\n	Pedidos aprovados: 0";
+		totalPedidosDesc += pedidosReprovados != 0 ? "\n	Pedidos reprovados: "+pedidosAprovados+" ("+(((double)totalPedidos/pedidosReprovados)*100)+"%)" : "\n	Pedidos reprovados: 0";
 				
-		// essa classe Calendar.MONTH tem indexes 0-11 para os meses, por isso, se o mes for 0 colocamos 12 pois um mes antes de janeiro vem dezembro, e dimin.uimos 1 do ano atual
-		String data = Calendar.MONTH == 0 ? Calendar.DATE +"/"+ 12 +"/"+ (Calendar.YEAR-1) : Calendar.DAY_OF_WEEK +"/"+ Calendar.MONTH +"/"+ Calendar.YEAR;
+		String dataAtual = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		String dia = dataAtual.substring(0,2);
+		int mes = (Integer.parseInt(dataAtual.substring(3, 5))-1);
+		// se mes for janeiro (1),menos 1 fica 0, entao pegamos o mes anterior, dezembro (12)
+		String mesStr = mes < 10 ? "0"+mes : ""+mes;
+		int ano = Integer.parseInt(dataAtual.substring(6, 10));
+		String dataMesAnteriorStr = mes == 0 ? dia +"/12/"+ (ano-1) : dia +"/"+ mesStr +"/"+ ano;
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		double valorMedio = 0, pedidosNoUltimoMes = 0;
+		double valorMedio = 0;
+		int pedidosNoUltimoMes = 0;
 		double valorDepComercial = 0, valorDepEngenharia = 0, valorDepFinanceiro = 0, valorDepManutencao = 0, valorDepRH = 0, valorDepTI = 0;
 		Pedido pedidoAbertoMaior = null;
 		try {
-			Date dataMesAnterior = formatter.parse(data);
+			Date dataMesAnterior = formatter.parse(dataMesAnteriorStr);
 			for(Pedido p : pedidos){
-				if(dataMesAnterior.after(p.getDataPed())){
+				if(dataMesAnterior.before(p.getDataPed())){
 					valorMedio += p.getValTot();
 					pedidosNoUltimoMes++;
 					if(p.getDepart() instanceof DepComercial) valorDepComercial+= p.getValTot();
@@ -129,23 +136,23 @@ public class RegistroDePedidos {
 					else if(p.getDepart() instanceof DepTI) valorDepTI+= p.getValTot();
 				}
 				if(p.getStatus() == StatusPedido.ABERTO){
-					if(pedidoAbertoMaior == null && p.getValTot() > pedidoAbertoMaior.getValTot()){
+					if(pedidoAbertoMaior == null || p.getValTot() > pedidoAbertoMaior.getValTot()){
 						pedidoAbertoMaior = p;
 					}
 				}
 			}
-			valorMedio = valorMedio / pedidosNoUltimoMes;
+			valorMedio = pedidosNoUltimoMes != 0 ? valorMedio / pedidosNoUltimoMes : 0;
 		} catch (Exception e) {
 			return null;
 		}
 		String numeroPedidosDesc = "Numero de pedidos nos ultimos 30 dias: "+pedidosNoUltimoMes+"\n	Valor médio: "+valorMedio;
 		String[] departamentos = {"Departamento Comercial", "Departamento Engenharia", "Departamento Financeiro", "Departamento Manutencao", "Departamento RH", "Departamento TI"};
 		double[] valorPorDepartamento = {valorDepComercial, valorDepEngenharia, valorDepFinanceiro, valorDepManutencao, valorDepRH, valorDepTI};
-		String descDepartamentos = "";
+		String descDepartamentos = "Valor por departamento nos últimos 30 dias:";
 		for (int i = 0; i < departamentos.length; i++) {
-			descDepartamentos += "\n"+departamentos[i]+": "+valorPorDepartamento;
+			descDepartamentos += "\n	"+departamentos[i]+": "+valorPorDepartamento[i];
 		}
-		String pedidoAbertoMaiorDesc = pedidoAbertoMaior.toString();
+		String pedidoAbertoMaiorDesc = "\nPedido aberto de maior valor:\n"+pedidoAbertoMaior.toString();
 		return totalPedidosDesc+"\n"+numeroPedidosDesc+"\n"+descDepartamentos+"\n"+pedidoAbertoMaiorDesc;
 	}
 }
