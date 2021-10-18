@@ -19,10 +19,14 @@ public class RegistroDeDepartamentos {
         return true;
     }
 
-    // Implementar
-    public Departamento pesquisaDepartamento(int identificador){
+    public Departamento pesquisaDepartamento(int identificador){   
+        for(Departamento dep : departamentos){
+            if(dep.getIdentificador() == identificador){
+                return dep;
+            }
+        }
         return null;
-    }
+    }        
 
     public String exibeListaDepartamento() {
         String aux = "Lista de Funcionários cadastrados\n";

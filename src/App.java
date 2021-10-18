@@ -110,17 +110,21 @@ public class App {
 				case 1 -> {
 					System.out.println("Digite o código do usuário desejado:");
 					System.out.println(rUsuarios.exibeListaUsuarios());
-					int id = Integer.parseInt(in.nextLine());
-					usuarioAtivo = rUsuarios.pesquisaUsuario(id);
+					int cod = Integer.parseInt(in.nextLine());
+					usuarioAtivo = rUsuarios.pesquisaUsuario(cod);
+					System.out.println("Perfil selecionado com sucesso.");
 				}
 				case 2 -> {
 					System.out.println(rPedidos.buscaAberto());
 				}
 				case 3 -> {
-					System.out.println("Digite o nome do Funcionario:");
-					String nome = in.nextLine();
-					Usuario u = rUsuarios.pesquisaUsuario(nome);
-					System.out.println(rPedidos.estatisticasGerais(u));
+					if (usuarioAtivo==null){
+						System.out.println("Nenhum usuário logado. Por favor selecione o seu usuário.");
+					}
+					else{
+						System.out.println("");
+						System.out.println(rPedidos.estatisticasGerais(usuarioAtivo));
+					}
 				}	
 				case 0 -> {
 					System.out.println("Programa Finalizado!");
