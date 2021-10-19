@@ -152,6 +152,7 @@ public class App {
 		System.out.println("1. Selecione seu usuário");
 		System.out.println("2. Exibe pedidos em Aberto");
 		System.out.println("3. Exibe estatisticas gerais do funcionario");
+		System.out.println("4. Excluir pedido");
 		System.out.println("0. Sair");
 	}
 }
