@@ -43,6 +43,10 @@ public class ListaDeItens {
 		return total;
 	}
 
+	public ArrayList<item> getItens() {
+		return itens;
+	}
+
 	@Override
 	public String toString() {
 		String aux = "";
