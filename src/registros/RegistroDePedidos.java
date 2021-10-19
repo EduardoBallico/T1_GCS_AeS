@@ -88,6 +88,16 @@ public class RegistroDePedidos {
 		return false;
 	}
 
+	public boolean excluirPedido(Usuario usuario, int codigo){
+		for(Pedido p: pedidos){
+			if(p.getStatus() == StatusPedido.ABERTO && p.getCodigo() == codigo && p.getFunc() == usuario){
+				pedidos.remove(p);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public boolean reprovar(int codigo, Usuario usuario) {
 		for (int i = 0; i < pedidos.size(); i++) {
 			if (pedidos.get(i).getCodigo() == codigo) {

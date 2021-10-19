@@ -1,8 +1,7 @@
 package departamentos;
 public class DepManutencao extends Departamento{
 
-    public DepManutencao(int identificador, double valorMaximo) {
-        super(identificador, valorMaximo);
+    public DepManutencao(int identificador, double valorMaximo, String nome) {
+        super(identificador, valorMaximo, nome);
     }
-    
 }

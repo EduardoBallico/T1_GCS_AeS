@@ -27,12 +27,12 @@ public class App {
 	public static void preencheDados() {
 
 		Departamento[] deps = { 
-			new DepTI(0, 150000), 
-			new DepComercial(1, 90000), 
-			new DepEngenharia(2, 170000),
-			new DepFinanceiro(3, 00), 
-			new DepManutencao(4, 50000), 
-			new DepRH(5, 35000),
+			new DepTI(0, 150000, "Departamento de TI"), 
+			new DepComercial(1, 90000, "Departamento Comercial"), 
+			new DepEngenharia(2, 170000, "Departamento de Engenharia"),
+			new DepFinanceiro(3, 120000, "Departamento Financeiro"), 
+			new DepManutencao(4, 50000, "Departamento de Manutencao"), 
+			new DepRH(5, 35000, "Departamento de Recursos Humanos"),
 		};
 
 		for (Departamento d : deps) {
@@ -89,12 +89,12 @@ public class App {
 
 	// Cria e Registra
 		Pedido[] ped = {
-			new Pedido(rUsuarios.pesquisaUsuario(0), rDepartamentos.pesquisaDepartamento(0), list1),
 			new Pedido(rUsuarios.pesquisaUsuario(1), rDepartamentos.pesquisaDepartamento(1), list2),
 			new Pedido(rUsuarios.pesquisaUsuario(2), rDepartamentos.pesquisaDepartamento(2), list3),
 			new Pedido(rUsuarios.pesquisaUsuario(3), rDepartamentos.pesquisaDepartamento(3), list4),
 			new Pedido(rUsuarios.pesquisaUsuario(4), rDepartamentos.pesquisaDepartamento(4), list5),
-			new Pedido(rUsuarios.pesquisaUsuario(5), rDepartamentos.pesquisaDepartamento(5), list6)
+			new Pedido(rUsuarios.pesquisaUsuario(5), rDepartamentos.pesquisaDepartamento(5), list6),
+			new Pedido(rUsuarios.pesquisaUsuario(6), rDepartamentos.pesquisaDepartamento(0), list1)
 		};
 		rPedidos = new RegistroDePedidos(new ArrayList<Pedido>(Arrays.asList(ped)));
 	}

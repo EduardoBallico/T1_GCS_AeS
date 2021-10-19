@@ -99,9 +99,14 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		String aux = "Pedido de código " + getCodigo() + "\n";
+		String aux = "Pedido de código " + codigo + "\n";
+		aux += "Data: " + data + "\n";  
+		aux += "Funcionario Responsavel: " + funcionario.getNome() + "\n";
+		aux += "Departamento: " + funcionario.getDepartamento().getNome() + "\n";
+		aux += "Status: " + status + "\n";
 		aux += "Itens pertencentes ao pedido:\n";
 		aux += listaDeItens.toString();
+		aux += "\n";
 		return aux;
 	}
 }

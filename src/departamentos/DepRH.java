@@ -1,8 +1,7 @@
 package departamentos;
 public class DepRH extends Departamento{
 
-    public DepRH(int identificador, double valorMaximo) {
-        super(identificador, valorMaximo);
+    public DepRH(int identificador, double valorMaximo, String nome) {
+        super(identificador, valorMaximo, nome);
     }
-    
 }

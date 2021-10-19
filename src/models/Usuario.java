@@ -4,7 +4,7 @@ import departamentos.Departamento;
 
 public class Usuario {
     private Departamento departamento;
-    private static int geraIdentif=1111;
+    private static int geraIdentif=1;
     private int identificador;
     private String nome;
     private boolean administrador;
