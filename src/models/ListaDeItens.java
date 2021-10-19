@@ -43,7 +43,7 @@ public class ListaDeItens {
 		return total;
 	}
 
-	public ArrayList<item> getItens() {
+	public ArrayList<Item> getItens() {
 		return itens;
 	}
 
