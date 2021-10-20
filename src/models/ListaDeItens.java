@@ -26,7 +26,7 @@ public class ListaDeItens {
 
 	public boolean procuraPorDescricao(String descricao) {
 		for (Item i : itens) {
-			if (i.getDescricao().equals(descricao)) {
+			if (i.getDescricao().equalsIgnoreCase(descricao)) {
 				return true;
 			}
 		}

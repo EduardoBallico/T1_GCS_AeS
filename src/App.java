@@ -2,10 +2,7 @@ import departamentos.*;
 import models.*;
 import registros.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
-
+import java.util.*;
 
 public class App {
 
@@ -156,6 +153,43 @@ public class App {
 					else System.out.println("Erro ao cadastrar novo pedido.");	
 					break;
 				}	
+				case 5 -> {
+					if(usuarioAtivo.administrador() == false){
+						System.out.println("Usuario logado nao eh adiministrador!");
+						break;
+					} else{
+						System.out.println("Informe a data INICIAL no formato dd/MM/yyyy");
+						String dInicial = in.nextLine();
+						System.out.println("Informe a data FINAL  no formato dd/MM/yyyy");
+						String dFinal = in.nextLine();
+						if(rPedidos.listaPedidosNoPeriodo(dInicial, dFinal) == null){
+							System.out.println("Nenhum pedido feito entre essas duas datas ou as datas sao invalidas!");
+						}
+						System.out.println(rPedidos.listaPedidosNoPeriodo(dInicial, dFinal));
+					}
+					break;
+				}
+				case 6 -> {
+					if(usuarioAtivo.administrador() == false){
+						System.out.println("Usuario logado nao eh adiministrador!");
+						break;
+					} else{
+						System.out.println("Informe a descricao do Item desejado!");
+						String desc = in.nextLine();
+						System.out.println("\n" + rPedidos.buscaDescricao(desc) + "\n");
+						break;
+					}
+				}
+				case 7 -> {
+					if(usuarioAtivo.administrador() == false){
+						System.out.println("Usuario logado nao eh adiministrador!");
+						break;
+					} else{
+						System.out.println("Informe o codigo do usuario que deseja buscar os pedidos feitos");
+						int codUs = Integer.parseInt(in.nextLine());
+						System.out.println(rPedidos.buscaSolicitante(rUsuarios.pesquisaUsuario(codUs)));
+					}
+				}
 				case 0 -> {
 					System.out.println("Programa Finalizado!");
 					return;
@@ -172,11 +206,14 @@ public class App {
 		if(usuarioAtivo != null) System.out.println("Voce esta logado como: "+usuarioAtivo.getNome());
 		else System.out.println("Voce nao esta logado, por favor selecione seu usuario.");
 		System.out.println(" === MENU === ");
-		System.out.println("1. Selecione seu usuario");
-		System.out.println("2. Exibe pedidos em Aberto");
-		System.out.println("3. Exibe estatisticas gerais do funcionario");
-		System.out.println("4. Criar novo pedido");
-		System.out.println("0. Sair");
+		System.out.println("1. Selecionar seu usuario;");
+		System.out.println("2. Exibir pedidos em Aberto;");
+		System.out.println("3. Exibir estatisticas gerais do funcionario;");
+		System.out.println("4. Criar novo pedido;");
+		System.out.println("5. Listar todos os pedidos entre duas datas;");
+		System.out.println("6. Buscar pedidos pela descricao de um item;");
+		System.out.println("7. Buscar pedidos por funcionario solicitante;");
+		System.out.println("0. Sair.");
 	}
 
 	public static void logar(){
