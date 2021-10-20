@@ -150,7 +150,9 @@ public class App {
 					} while(hasNext != 2);
 
 					Pedido p = new Pedido(usuarioAtivo, usuarioAtivo.getDepartamento(), l);
-					System.out.println("Pedido cadastrado!");
+					boolean inseriu = rPedidos.inserePedido(p);
+					if(inseriu) System.out.println("Pedido cadastrado!");
+					else System.out.println("Erro ao cadastrar novo pedido.");
 					break;
 				
 				case 0: 
