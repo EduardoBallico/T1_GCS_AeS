@@ -13,8 +13,10 @@ public class Pedido {
 	private StatusPedido status;
 	private boolean concluido;
 	private static int contadorDePedidos = 1; // Incrementa a cada novo pedido criado
+	private Double valorTotal;
 
 	public Pedido(Usuario funcionario, Departamento departamento, ListaDeItens listaItens) {
+		this.valorTotal = 0.0;
 		this.codigo = contadorDePedidos++;
 		this.funcionario = funcionario;
 		this.departamento = departamento;
@@ -35,6 +37,7 @@ public class Pedido {
 			return false;
 		}
 		if (listaDeItens.incluirItem(item)) {
+			this.valorTotal += item.getValorTotal();
 			return true;
 		}
 		return false;
@@ -96,6 +99,10 @@ public class Pedido {
 		return funcionario;
 	}
 
+	public Double getValorTotal(){
+		return valorTotal;
+	}
+
 	public Departamento getDepart() {
 		return departamento;
 	}
@@ -108,7 +115,8 @@ public class Pedido {
 		aux += "Departamento: " + funcionario.getDepartamento().getNome() + "\n";
 		aux += "Status: " + status + "\n";
 		aux += "Itens pertencentes ao pedido:\n";
-		aux += listaDeItens.toString();
+		aux += listaDeItens.toString() + "\n";
+		aux += "Valor total do pedido: " + valorTotal + "\n";
 		aux += "\n";
 		return aux;
 	}
