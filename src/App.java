@@ -35,7 +35,6 @@ public class App {
 			new DepManutencao(4, 50000, "Departamento de Manutencao"), 
 			new DepRH(5, 35000, "Departamento de Recursos Humanos"),
 		};
-
 		for (Departamento d : deps) {
 			rDepartamentos.insereDepartamento(d);
 		}
@@ -58,7 +57,6 @@ public class App {
 			new Usuario(rDepartamentos.pesquisaDepartamento(1), "Marisa", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", true)
 		};
-
 		for (Usuario f : funcs) {
 			rUsuarios.insereUsuario(f);
 		}
@@ -109,15 +107,15 @@ public class App {
 			int input = Integer.parseInt(in.nextLine());
 
 			switch (input) {
-				case 1: 
+				case 1 -> {
 					logar();
-					break;
-				
-				case 2: 
+				}
+				break;
+				case 2 -> {
 					System.out.println(rPedidos.buscaAberto());
-					break;
-				
-				case 3: 
+				}
+				break;
+				case 3 -> {
 					if (usuarioAtivo == null) {
 						System.out.println("Nenhum usuario logado. Por favor selecione o seu usuario.");
 					} else {
@@ -125,9 +123,11 @@ public class App {
 						System.out.println(rPedidos.estatisticasGerais(usuarioAtivo));
 					}
 					break;
-				case 4:	
+				case 4 -> {
+
 					ListaDeItens l = new ListaDeItens();
 					int hasNext = 0;
+
 					do{	
 						System.out.print("Digite o nome do Item:");
 						String pNome = in.nextLine();
@@ -152,9 +152,9 @@ public class App {
 					Pedido p = new Pedido(usuarioAtivo, usuarioAtivo.getDepartamento(), l);
 					boolean inseriu = rPedidos.inserePedido(p);
 					if(inseriu) System.out.println("Pedido cadastrado!");
-					else System.out.println("Erro ao cadastrar novo pedido.");
+					else System.out.println("Erro ao cadastrar novo pedido.");	
+				}
 					break;
-				
 				case 0: 
 					System.out.println("Programa Finalizado!");
 					return;
