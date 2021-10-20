@@ -21,8 +21,9 @@ public class Pedido {
 		this.data = new Date(); // Registra a data de criação
 		this.concluido = false;
 		this.status = StatusPedido.ABERTO;
+		this.listaDeItens = new ListaDeItens();
 		for(Item i : listaItens.getItens()){
-			listaDeItens.incluirItem(i);
+			inserirItem(i);
 		}
 	}
 

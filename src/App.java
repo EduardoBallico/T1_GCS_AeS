@@ -15,15 +15,16 @@ public class App {
 
 	private static Usuario usuarioAtivo;
 
+	private static Scanner in = new Scanner(System.in);
+
 	public static void main(String[] args) {
 
 		System.out.println("Inicializando...");
 
 		preencheDados();
 		executar();
-
 	}
-
+	
 	public static void preencheDados() {
 
 		Departamento[] deps = { 
@@ -100,8 +101,8 @@ public class App {
 	}
 
 	private static void executar() {
-		Scanner in = new Scanner(System.in);
 
+		logar();
 		while (true) {
 			exibeMenu();
 			System.err.print("Sua opção: ");
@@ -109,15 +110,7 @@ public class App {
 
 			switch (input) {
 				case 1: 
-					System.out.println(rUsuarios.exibeListaUsuarios());
-					System.out.print("Digite o código do usuário desejado:");
-					int cod = Integer.parseInt(in.nextLine());
-					Usuario usuarioBuscado = rUsuarios.pesquisaUsuario(cod);
-					if (usuarioBuscado != null) {
-						usuarioAtivo = usuarioBuscado;
-						System.out.println("Perfil selecionado com sucesso.");
-					}
-					else System.out.println("Código de usuario inexistente, tente novamente.");
+					logar();
 					break;
 				
 				case 2: 
@@ -133,29 +126,27 @@ public class App {
 					}
 					break;
 				case 4:	
-
 					ListaDeItens l = new ListaDeItens();
-
+					int hasNext = 0;
 					do{	
 						System.out.print("Digite o nome do Item:");
 						String pNome = in.nextLine();
 						System.out.print("Digite o valor unitario:");
-						double pValor = Integer.parseInt(in.nextLine());
+						double pValor = Double.parseDouble(in.nextLine());
 						System.out.print("Digite a quantidade:");
-						double pQnt = Integer.parseInt(in.nextLine());
-
+						int pQnt = Integer.parseInt(in.nextLine());
 						
 						l.incluirItem(new Item(pNome, pValor, pQnt));
 
-						System.out.print("Deseja Adicionar mais um item ao Pedido?:");
-						System.out.print("1. Sim");
-						System.out.print("2. Não");
-						int hasNext = Integer.parseInt(in.nextLine());
+						System.out.println("Deseja Adicionar mais um item ao Pedido?:");
+						System.out.println("1. Sim");
+						System.out.println("2. Não");
+						System.out.print("Sua opçao: ");
+						hasNext = Integer.parseInt(in.nextLine());
 					} while(hasNext != 2);
 
 					Pedido p = new Pedido(usuarioAtivo, usuarioAtivo.getDepartamento(), l);
-					System.out.print("Pedido cadastrado!");
-
+					System.out.println("Pedido cadastrado!");
 					break;
 				
 				case 0: 
@@ -165,7 +156,6 @@ public class App {
 				default: 
 					System.out.println("Opção invalida!");
 					break;
-				
 			}
 		}
 	}
@@ -179,5 +169,17 @@ public class App {
 		System.out.println("3. Exibe estatisticas gerais do funcionario");
 		System.out.println("4. Criar novo pedido");
 		System.out.println("0. Sair");
+	}
+
+	public static void logar(){
+		System.out.println(rUsuarios.exibeListaUsuarios());
+		System.out.print("Digite o código do usuário desejado:");
+		int cod = Integer.parseInt(in.nextLine());
+		Usuario usuarioBuscado = rUsuarios.pesquisaUsuario(cod);
+		if (usuarioBuscado != null) {
+			usuarioAtivo = usuarioBuscado;
+			System.out.println("Perfil selecionado com sucesso.");
+		}
+		else System.out.println("Código de usuario inexistente, tente novamente.");
 	}
 }
