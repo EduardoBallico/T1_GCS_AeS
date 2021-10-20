@@ -109,20 +109,21 @@ public class App {
 			switch (input) {
 				case 1 -> {
 					logar();
+					break;
 				}
-				break;
 				case 2 -> {
 					System.out.println(rPedidos.buscaAberto());
+					break;
 				}
-				break;
 				case 3 -> {
 					if (usuarioAtivo == null) {
 						System.out.println("Nenhum usuario logado. Por favor selecione o seu usuario.");
 					} else {
 						System.out.println("");
 						System.out.println(rPedidos.estatisticasGerais(usuarioAtivo));
+						break;
 					}
-					break;
+				}
 				case 4 -> {
 
 					ListaDeItens l = new ListaDeItens();
@@ -153,15 +154,16 @@ public class App {
 					boolean inseriu = rPedidos.inserePedido(p);
 					if(inseriu) System.out.println("Pedido cadastrado!");
 					else System.out.println("Erro ao cadastrar novo pedido.");	
-				}
 					break;
-				case 0: 
+				}	
+				case 0 -> {
 					System.out.println("Programa Finalizado!");
 					return;
-				
-				default: 
+				}
+				default -> {
 					System.out.println("Opcao invalida!");
 					break;
+				}
 			}
 		}
 	}
