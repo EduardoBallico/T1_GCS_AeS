@@ -29,9 +29,9 @@ public class RegistroDeDepartamentos {
     }        
 
     public String exibeListaDepartamento() {
-        String aux = "Lista de Funcionários cadastrados\n";
+        String aux = "Lista de Funcionarios cadastrados\n";
         if (departamentos.size() <= 0) {
-            aux += "Sem funcionários cadastrados!";
+            aux += "Sem funcionarios cadastrados!";
             return aux;
         }
         for (int i = 0; i < departamentos.size(); i++) {

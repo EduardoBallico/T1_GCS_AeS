@@ -48,9 +48,9 @@ public class RegistroDeUsuarios {
     }
 
     public String exibeListaUsuarios() {
-        String aux = "Lista de Funcionários cadastrados\n";
+        String aux = "Lista de Funcionarios cadastrados\n";
         if (usuarios.size() <= 0) {
-            aux += "Sem funcionários cadastrados!";
+            aux += "Sem funcionarios cadastrados!";
             return aux;
         }
         for (int i = 0; i < usuarios.size(); i++) {

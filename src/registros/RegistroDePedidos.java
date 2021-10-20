@@ -6,7 +6,6 @@ import departamentos.*;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import models.Pedido;
 import models.StatusPedido;
@@ -155,10 +154,10 @@ public class RegistroDePedidos {
 		} catch (Exception e) {
 			return null;
 		}
-		String numeroPedidosDesc = "Numero de pedidos nos ultimos 30 dias: "+pedidosNoUltimoMes+"\n	Valor médio: "+valorMedio;
+		String numeroPedidosDesc = "Numero de pedidos nos ultimos 30 dias: "+pedidosNoUltimoMes+"\n	Valor medio: "+valorMedio;
 		String[] departamentos = {"Departamento Comercial", "Departamento Engenharia", "Departamento Financeiro", "Departamento Manutencao", "Departamento RH", "Departamento TI"};
 		double[] valorPorDepartamento = {valorDepComercial, valorDepEngenharia, valorDepFinanceiro, valorDepManutencao, valorDepRH, valorDepTI};
-		String descDepartamentos = "Valor por departamento nos últimos 30 dias:";
+		String descDepartamentos = "Valor por departamento nos ultimos 30 dias:";
 		for (int i = 0; i < departamentos.length; i++) {
 			descDepartamentos += "\n	"+departamentos[i]+": "+valorPorDepartamento[i];
 		}

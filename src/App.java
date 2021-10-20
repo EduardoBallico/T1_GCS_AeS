@@ -19,7 +19,7 @@ public class App {
 
 	public static void main(String[] args) {
 
-		System.out.println("Inicializando...");
+		System.out.println("Inicializando...\n\n\n");
 
 		preencheDados();
 		executar();
@@ -105,7 +105,7 @@ public class App {
 		logar();
 		while (true) {
 			exibeMenu();
-			System.err.print("Sua opção: ");
+			System.err.print("Sua opcao: ");
 			int input = Integer.parseInt(in.nextLine());
 
 			switch (input) {
@@ -119,7 +119,7 @@ public class App {
 				
 				case 3: 
 					if (usuarioAtivo == null) {
-						System.out.println("Nenhum usuário logado. Por favor selecione o seu usuário.");
+						System.out.println("Nenhum usuario logado. Por favor selecione o seu usuario.");
 					} else {
 						System.out.println("");
 						System.out.println(rPedidos.estatisticasGerais(usuarioAtivo));
@@ -137,12 +137,16 @@ public class App {
 						int pQnt = Integer.parseInt(in.nextLine());
 						
 						l.incluirItem(new Item(pNome, pValor, pQnt));
-
-						System.out.println("Deseja Adicionar mais um item ao Pedido?:");
-						System.out.println("1. Sim");
-						System.out.println("2. Não");
-						System.out.print("Sua opçao: ");
-						hasNext = Integer.parseInt(in.nextLine());
+						while(hasNext != 1 && hasNext != 2){
+							System.out.println("Deseja Adicionar mais um item ao Pedido?:");
+							System.out.println("1. Sim;");
+							System.out.println("2. Nao.");
+							System.out.print("Sua opcao: ");
+							hasNext = Integer.parseInt(in.nextLine());
+							if(hasNext != 1 && hasNext != 2){
+								System.out.println("Opcao Invalida! \n");
+							}
+						}
 					} while(hasNext != 2);
 
 					Pedido p = new Pedido(usuarioAtivo, usuarioAtivo.getDepartamento(), l);
@@ -154,17 +158,17 @@ public class App {
 					return;
 				
 				default: 
-					System.out.println("Opção invalida!");
+					System.out.println("Opcao invalida!");
 					break;
 			}
 		}
 	}
 
 	private static void exibeMenu() {
-		if(usuarioAtivo != null) System.out.println("Você está logado como: "+usuarioAtivo.getNome());
-		else System.out.println("Você não está logado, por favor selecione seu usuário.");
+		if(usuarioAtivo != null) System.out.println("Voce esta logado como: "+usuarioAtivo.getNome());
+		else System.out.println("Voce nao esta logado, por favor selecione seu usuario.");
 		System.out.println(" === MENU === ");
-		System.out.println("1. Selecione seu usuário");
+		System.out.println("1. Selecione seu usuario");
 		System.out.println("2. Exibe pedidos em Aberto");
 		System.out.println("3. Exibe estatisticas gerais do funcionario");
 		System.out.println("4. Criar novo pedido");
@@ -173,13 +177,13 @@ public class App {
 
 	public static void logar(){
 		System.out.println(rUsuarios.exibeListaUsuarios());
-		System.out.print("Digite o código do usuário desejado:");
+		System.out.print("Digite o codigo do usuario desejado:");
 		int cod = Integer.parseInt(in.nextLine());
 		Usuario usuarioBuscado = rUsuarios.pesquisaUsuario(cod);
 		if (usuarioBuscado != null) {
 			usuarioAtivo = usuarioBuscado;
 			System.out.println("Perfil selecionado com sucesso.");
 		}
-		else System.out.println("Código de usuario inexistente, tente novamente.");
+		else System.out.println("Codigo de usuario inexistente, tente novamente.");
 	}
 }

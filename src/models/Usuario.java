@@ -35,7 +35,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario: Nome: " + nome + " | Identificador: " + identificador +  " | departamento: " + departamento + " | administrador: " + administrador + "\n";
+        return "Usuario: Nome: " + nome + " | Identificador: " + identificador +  " | departamento: " + departamento.getNome() + " | administrador: " + administrador + "\n";
     }
 
 

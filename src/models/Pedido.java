@@ -102,7 +102,7 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		String aux = "Pedido de código " + codigo + "\n";
+		String aux = "Pedido de codigo " + codigo + "\n";
 		aux += "Data: " + data + "\n";  
 		aux += "Funcionario Responsavel: " + funcionario.getNome() + "\n";
 		aux += "Departamento: " + funcionario.getDepartamento().getNome() + "\n";
