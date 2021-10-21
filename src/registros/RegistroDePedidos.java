@@ -1,6 +1,7 @@
 package registros;
 
 import java.util.Date;
+import java.util.Optional;
 
 import departamentos.*;
 
@@ -163,5 +164,12 @@ public class RegistroDePedidos {
 		}
 		String pedidoAbertoMaiorDesc = "\nPedido aberto de maior valor:\n"+pedidoAbertoMaior.toString();
 		return totalPedidosDesc+"\n"+numeroPedidosDesc+"\n"+descDepartamentos+"\n"+pedidoAbertoMaiorDesc;
+	}
+
+	public Pedido buscaPorCodigo(int id){
+		ArrayList<Pedido> pedidosAbertos = buscaAberto();
+		Optional<Pedido> encontrado = pedidosAbertos.stream().filter(p -> p.getCodigo() == id).findFirst();
+		if(encontrado.isPresent()) return encontrado.get();
+		return null;
 	}
 }

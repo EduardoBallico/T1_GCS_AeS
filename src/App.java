@@ -3,6 +3,7 @@ import models.*;
 import registros.*;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class App {
 
@@ -95,24 +96,25 @@ public class App {
 		rPedidos = new RegistroDePedidos(new ArrayList<Pedido>(Arrays.asList(ped)));
 	}
 
-	private static void executar() {
+	private static void executar(){
 
 		logar();
 		while (true) {
+			wait(700);
 			exibeMenu();
 			System.err.print("Sua opcao: ");
 			int input = Integer.parseInt(in.nextLine());
 
 			switch (input) {
-				case 1 -> {
+				case 1 : {
 					logar();
 					break;
 				}
-				case 2 -> {
+				case 2 : {
 					System.out.println(rPedidos.buscaAberto());
 					break;
 				}
-				case 3 -> {
+				case 3 : {
 					if (usuarioAtivo == null) {
 						System.out.println("Nenhum usuario logado. Por favor selecione o seu usuario.");
 					} else {
@@ -121,7 +123,7 @@ public class App {
 						break;
 					}
 				}
-				case 4 -> {
+				case 4 : {
 
 					ListaDeItens l = new ListaDeItens();
 					int hasNext = 0;
@@ -153,7 +155,7 @@ public class App {
 					else System.out.println("Erro ao cadastrar novo pedido.");	
 					break;
 				}	
-				case 5 -> {
+				case 5 : {
 					if(usuarioAtivo.administrador() == false){
 						System.out.println("Usuario logado nao eh adiministrador!");
 						break;
@@ -162,14 +164,16 @@ public class App {
 						String dInicial = in.nextLine();
 						System.out.println("Informe a data FINAL  no formato dd/MM/yyyy");
 						String dFinal = in.nextLine();
-						if(rPedidos.listaPedidosNoPeriodo(dInicial, dFinal) == null){
-							System.out.println("Nenhum pedido feito entre essas duas datas ou as datas sao invalidas!");
-						}
-						System.out.println(rPedidos.listaPedidosNoPeriodo(dInicial, dFinal));
+						var pedidosNoPeriodo = rPedidos.listaPedidosNoPeriodo(dInicial, dFinal);
+						if( pedidosNoPeriodo == null)
+							System.out.println("Data informadas sao invalidas!");
+						else if(pedidosNoPeriodo.size() <= 0) 
+							System.out.println("Nenhum pedido feito no periodo informado.");
+						else System.out.println(pedidosNoPeriodo);
 					}
 					break;
 				}
-				case 6 -> {
+				case 6 : {
 					if(usuarioAtivo.administrador() == false){
 						System.out.println("Usuario logado nao eh adiministrador!");
 						break;
@@ -180,21 +184,46 @@ public class App {
 						break;
 					}
 				}
-				case 7 -> {
+				case 7 : {
 					if(usuarioAtivo.administrador() == false){
 						System.out.println("Usuario logado nao eh adiministrador!");
 						break;
 					} else{
-						System.out.println("Informe o codigo do usuario que deseja buscar os pedidos feitos");
+						System.out.print("Informe o codigo do usuario para buscar seus pedidos feitos: ");
 						int codUs = Integer.parseInt(in.nextLine());
 						System.out.println(rPedidos.buscaSolicitante(rUsuarios.pesquisaUsuario(codUs)));
 					}
+					break;
 				}
-				case 0 -> {
+				case 8 : {
+					if(usuarioAtivo.administrador() == false){
+						System.out.println("Usuario logado nao eh adiministrador!");
+						break;
+					} else{
+						System.out.print("Informe o codigo do pedido ABERTO: ");
+						int codigoPedido = Integer.parseInt(in.nextLine());
+						Pedido pedidoBuscado = rPedidos.buscaPorCodigo(codigoPedido);
+						if(pedidoBuscado != null){
+							System.out.println("Pedido encontrado: "+pedidoBuscado);
+							System.out.print("Digite 1 APROVAR | 2 REJEITAR | 3 cancelar operacao: ");
+							int opc = Integer.parseInt(in.nextLine());
+							while(opc != 1 && opc != 2 && opc != 3){
+								System.out.println("Opcao invalida, tente novamente: ");
+								opc = Integer.parseInt(in.nextLine());
+							}
+							alteraStatusPedido(pedidoBuscado, opc);
+						}
+						else{
+							System.out.println("Nenhum pedido encontrado com o codigo informado.");
+						}
+					}
+					break;
+				}
+				case 0 : {
 					System.out.println("Programa Finalizado!");
 					return;
 				}
-				default -> {
+				default : {
 					System.out.println("Opcao invalida!");
 					break;
 				}
@@ -203,9 +232,9 @@ public class App {
 	}
 
 	private static void exibeMenu() {
+		System.out.println(" ====== MENU ====== ");
 		if(usuarioAtivo != null) System.out.println("Voce esta logado como: "+usuarioAtivo.getNome());
 		else System.out.println("Voce nao esta logado, por favor selecione seu usuario.");
-		System.out.println(" === MENU === ");
 		System.out.println("1. Selecionar seu usuario;");
 		System.out.println("2. Exibir pedidos em Aberto;");
 		System.out.println("3. Exibir estatisticas gerais do funcionario;");
@@ -213,6 +242,7 @@ public class App {
 		System.out.println("5. Listar todos os pedidos entre duas datas;");
 		System.out.println("6. Buscar pedidos pela descricao de um item;");
 		System.out.println("7. Buscar pedidos por funcionario solicitante;");
+		System.out.println("8. APROVAR ou REPROVAR pedido");
 		System.out.println("0. Sair.");
 	}
 
@@ -227,4 +257,36 @@ public class App {
 		}
 		else System.out.println("Codigo de usuario inexistente, tente novamente.");
 	}
+
+	public static void alteraStatusPedido(Pedido pedido, int opcaoEscolhida){
+		if(pedido != null){
+			switch (opcaoEscolhida) {
+				case 1:
+					pedido.aprovar(usuarioAtivo);
+					System.out.println("Pedido APROVADO com sucesso.");
+					break;
+					case 2:
+					pedido.reprovar(usuarioAtivo);
+					System.out.println("Pedido REPROVADO com sucesso.");
+					break;
+				case 3:
+					System.out.println("Operacao cancelada.");
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
+	public static void wait(int ms)
+{
+    try
+    {
+        Thread.sleep(ms);
+    }
+    catch(InterruptedException ex)
+    {
+        Thread.currentThread().interrupt();
+    }
+}
 }
