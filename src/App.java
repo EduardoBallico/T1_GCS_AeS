@@ -3,7 +3,6 @@ import models.*;
 import registros.*;
 
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class App {
 
@@ -66,7 +65,7 @@ public class App {
 
 		ListaDeItens list2 = new ListaDeItens();
 		list2.incluirItem(new Item("Telefone Comercial", 250, 220));
-		list2.incluirItem(new Item("Central de Comunicação", 5000, 5));
+		list2.incluirItem(new Item("Central de Comunicacao", 5000, 5));
 
 		ListaDeItens list3 = new ListaDeItens();
 		list3.incluirItem(new Item("Caminhao Mercedes-Benz GenH2", 52000, 1));
