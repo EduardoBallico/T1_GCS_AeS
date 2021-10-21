@@ -53,6 +53,9 @@ public class RegistroDePedidos {
 		if(pedAux == null){
 			return false;
 		}
+		if(pedAux.getValorTotal() <= 0){
+			return false;
+		}
 		pedidos.add(pedAux);
 		return true;
 	}
@@ -117,8 +120,8 @@ public class RegistroDePedidos {
 			totalPedidos++;
 		}
 		String totalPedidosDesc = "Total de pedidos: "+totalPedidos;
-		totalPedidosDesc += pedidosAprovados != 0 ?  "\n	Pedidos aprovados: "+pedidosAprovados+" ("+(((double)totalPedidos/pedidosAprovados)*100)+"%)" : "\n	Pedidos aprovados: 0";
-		totalPedidosDesc += pedidosReprovados != 0 ? "\n	Pedidos reprovados: "+pedidosAprovados+" ("+(((double)totalPedidos/pedidosReprovados)*100)+"%)" : "\n	Pedidos reprovados: 0";
+		totalPedidosDesc += pedidosAprovados != 0 ?  "\n	Pedidos aprovados: "+pedidosAprovados+" ("+ (((double)pedidosAprovados/(double)totalPedidos)*100)+"%)" : "\n	Pedidos aprovados: 0";
+		totalPedidosDesc += pedidosReprovados != 0 ? "\n	Pedidos reprovados: "+pedidosAprovados+" ("+(((double)pedidosReprovados/(double)totalPedidos)*100)+"%)" : "\n	Pedidos reprovados: 0";
 				
 		String dataAtual = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 		String dia = dataAtual.substring(0,2);

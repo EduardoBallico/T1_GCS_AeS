@@ -30,8 +30,8 @@ public class App {
 			new DepComercial(1, 90000, "Departamento Comercial"), 
 			new DepEngenharia(2, 170000, "Departamento de Engenharia"),
 			new DepFinanceiro(3, 120000, "Departamento Financeiro"), 
-			new DepManutencao(4, 50000, "Departamento de Manutencao"), 
-			new DepRH(5, 35000, "Departamento de Recursos Humanos"),
+			new DepManutencao(4, 80000, "Departamento de Manutencao"), 
+			new DepRH(5, 75000, "Departamento de Recursos Humanos"),
 		};
 		for (Departamento d : deps) {
 			rDepartamentos.insereDepartamento(d);
@@ -69,10 +69,10 @@ public class App {
 		list2.incluirItem(new Item("Central de Comunicação", 5000, 5));
 
 		ListaDeItens list3 = new ListaDeItens();
-		list3.incluirItem(new Item("Caminhao Mercedes-Benz GenH2", 330000, 1));
+		list3.incluirItem(new Item("Caminhao Mercedes-Benz GenH2", 52000, 1));
 
 		ListaDeItens list4 = new ListaDeItens();
-		list4.incluirItem(new Item("Computador de Escritório", 2500, 10));
+		list4.incluirItem(new Item("Computador de Escritorio", 2500, 10));
 		list4.incluirItem(new Item("Impressora HP Series-T", 1250, 10));
 		list4.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
 
@@ -214,7 +214,7 @@ public class App {
 							alteraStatusPedido(pedidoBuscado, opc);
 						}
 						else{
-							System.out.println("Nenhum pedido encontrado com o codigo informado.");
+							System.out.println("Nenhum pedido aberto encontrado com o codigo informado.");
 						}
 					}
 					break;
