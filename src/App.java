@@ -41,19 +41,19 @@ public class App {
 		Usuario[] funcs = {
 			new Usuario(rDepartamentos.pesquisaDepartamento(0), "Eduardo", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(1), "Guilherme", false),
-			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", true),
+			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Vinicius", false),
 			new Usuario(rDepartamentos.pesquisaDepartamento(3), "Arthur", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(4), "Andre", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(5), "Leandro", true),
-			new Usuario(rDepartamentos.pesquisaDepartamento(0), "Daniel", true),
+			new Usuario(rDepartamentos.pesquisaDepartamento(0), "Daniel", false),
 			new Usuario(rDepartamentos.pesquisaDepartamento(1), "Pedro", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eduarda", true),
-			new Usuario(rDepartamentos.pesquisaDepartamento(3), "Vitoria", true),
+			new Usuario(rDepartamentos.pesquisaDepartamento(3), "Vitoria", false),
 			new Usuario(rDepartamentos.pesquisaDepartamento(4), "Gertrudes", true),
-			new Usuario(rDepartamentos.pesquisaDepartamento(5), "Carla", true),
+			new Usuario(rDepartamentos.pesquisaDepartamento(5), "Carla", false),
 			new Usuario(rDepartamentos.pesquisaDepartamento(0), "Claudia", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(1), "Marisa", true),
-			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", true)
+			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", false)
 		};
 		for (Usuario f : funcs) {
 			rUsuarios.insereUsuario(f);
@@ -219,6 +219,19 @@ public class App {
 					}
 					break;
 				}
+				case 9 : {
+					System.out.println("Informe o codigo do Pedido a ser excluido");
+					int cod = Integer.parseInt(in.nextLine());
+					if( rPedidos.buscaPorCodigo(cod) == null){
+						System.out.println("Pedido nao encontrado!");
+						} else if(rPedidos.excluirPedido(usuarioAtivo, cod)){
+							System.out.println("Pedido excluido com sucesso!");
+						} else {
+							System.out.println("Usuario logado nao eh o mesmo do pedido informado!");
+							System.out.println("OBS: Apenas o proprio funcionario que criou o pedido podera exclui-lo");
+						}
+					break;
+				}
 				case 0 : {
 					System.out.println("Programa Finalizado!");
 					return;
@@ -242,7 +255,8 @@ public class App {
 		System.out.println("5. Listar todos os pedidos entre duas datas;");
 		System.out.println("6. Buscar pedidos pela descricao de um item;");
 		System.out.println("7. Buscar pedidos por funcionario solicitante;");
-		System.out.println("8. APROVAR ou REPROVAR pedido");
+		System.out.println("8. APROVAR ou REPROVAR pedido;");
+		System.out.println("9. EXCLUIR um pedido;");
 		System.out.println("0. Sair.");
 	}
 

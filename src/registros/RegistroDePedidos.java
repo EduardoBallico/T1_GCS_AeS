@@ -112,6 +112,13 @@ public class RegistroDePedidos {
 		return false;
 	}
 
+	public Pedido buscaPorCodigo(int id){
+		ArrayList<Pedido> pedidosAbertos = buscaAberto();
+		Optional<Pedido> encontrado = pedidosAbertos.stream().filter(p -> p.getCodigo() == id).findFirst();
+		if(encontrado.isPresent()) return encontrado.get();
+		return null;
+	}
+
 	public String estatisticasGerais(Usuario usuario) {
 		int pedidosAprovados = 0, pedidosReprovados = 0 , totalPedidos = 0;
 		for(Pedido p : pedidos){
@@ -167,12 +174,5 @@ public class RegistroDePedidos {
 		}
 		String pedidoAbertoMaiorDesc = "\nPedido aberto de maior valor:\n"+pedidoAbertoMaior.toString();
 		return totalPedidosDesc+"\n"+numeroPedidosDesc+"\n"+descDepartamentos+"\n"+pedidoAbertoMaiorDesc;
-	}
-
-	public Pedido buscaPorCodigo(int id){
-		ArrayList<Pedido> pedidosAbertos = buscaAberto();
-		Optional<Pedido> encontrado = pedidosAbertos.stream().filter(p -> p.getCodigo() == id).findFirst();
-		if(encontrado.isPresent()) return encontrado.get();
-		return null;
 	}
 }
