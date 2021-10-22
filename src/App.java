@@ -31,6 +31,7 @@ public class App {
 			new DepFinanceiro(3, 120000, "Departamento Financeiro"), 
 			new DepManutencao(4, 80000, "Departamento de Manutencao"), 
 			new DepRH(5, 75000, "Departamento de Recursos Humanos"),
+			new DepContabilidade(6, 95000, "Departamento de Contabilidade")
 		};
 		for (Departamento d : deps) {
 			rDepartamentos.insereDepartamento(d);
@@ -52,7 +53,8 @@ public class App {
 			new Usuario(rDepartamentos.pesquisaDepartamento(5), "Carla", false),
 			new Usuario(rDepartamentos.pesquisaDepartamento(0), "Claudia", true),
 			new Usuario(rDepartamentos.pesquisaDepartamento(1), "Marisa", true),
-			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", false)
+			new Usuario(rDepartamentos.pesquisaDepartamento(2), "Eveline", false),
+			new Usuario(rDepartamentos.pesquisaDepartamento(6), "João", true)
 		};
 		for (Usuario f : funcs) {
 			rUsuarios.insereUsuario(f);
@@ -83,6 +85,10 @@ public class App {
 		ListaDeItens list6 = new ListaDeItens();
 		list6.incluirItem(new Item("Folhas A4 para impressora", 19, 200));
 
+		ListaDeItens list7 = new ListaDeItens();
+		list7.incluirItem(new Item("Notebook Dell Inspiron i7", 5350, 1));
+		list7.incluirItem(new Item("Macbook Pro 2021", 28930, 1));
+
 	// Cria e Registra
 		Pedido[] ped = {
 			new Pedido(rUsuarios.pesquisaUsuario(1), rDepartamentos.pesquisaDepartamento(1), list2),
@@ -90,7 +96,8 @@ public class App {
 			new Pedido(rUsuarios.pesquisaUsuario(3), rDepartamentos.pesquisaDepartamento(3), list4),
 			new Pedido(rUsuarios.pesquisaUsuario(4), rDepartamentos.pesquisaDepartamento(4), list5),
 			new Pedido(rUsuarios.pesquisaUsuario(5), rDepartamentos.pesquisaDepartamento(5), list6),
-			new Pedido(rUsuarios.pesquisaUsuario(6), rDepartamentos.pesquisaDepartamento(0), list1)
+			new Pedido(rUsuarios.pesquisaUsuario(6), rDepartamentos.pesquisaDepartamento(0), list1),
+			new Pedido(rUsuarios.pesquisaUsuario(7), rDepartamentos.pesquisaDepartamento(6), list7)
 		};
 		rPedidos = new RegistroDePedidos(new ArrayList<Pedido>(Arrays.asList(ped)));
 	}
