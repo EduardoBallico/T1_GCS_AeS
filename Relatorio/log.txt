@@ -1,0 +1,915 @@
+Revision: 0000000000000000000000000000000000000000
+Author:  <>
+Date: 31/12/1969 21:00:00
+Message:
+Working tree changes
+
+0 files changed
+----
+
+Revision: 28b54c430a886bf2b0cd308bd1b195638c09bbfb
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 22/10/2021 17:58:55
+Message:
+Finalização do tópico 3
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: 77a5c89483af07ddc0cde9ba3cf959adad7b7187
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 22/10/2021 17:26:54
+Message:
+Adição do Network
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: 2ff6704c111309384a42503fdaf80281729e5837
+Author: Ismael Freitas de Vargas <50303514+ismaelfvargas@users.noreply.github.com>
+Date: 22/10/2021 17:13:17
+Message:
+Merge pull request #3 from EduardoBallico/develop
+
+Develop
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+Modified: src/App.java
+Added: src/departamentos/DepContabilidade.java
+
+Revision: 943406160c22061de326c764511ecfb56cdd0cf5
+Author: ismaelfvargas <ismaelpoap@gmail.com>
+Date: 22/10/2021 19:57:45
+Message:
+finalizando relatório
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: 94c52ec8b8a1380914f52fc45fab838dc1640fe8
+Author: ismaelfvargas <ismaelpoap@gmail.com>
+Date: 22/10/2021 18:57:55
+Message:
+Inclusão de departamento e itens
+
+----
+Modified: src/App.java
+Added: src/departamentos/DepContabilidade.java
+
+Revision: 1bb7130a59de7f95e9b11f9b1694107ac4e437e7
+Author: arthurkunzler <72428522+arthurkunzler@users.noreply.github.com>
+Date: 22/10/2021 13:32:19
+Message:
+Merge pull request #2 from EduardoBallico/develop
+
+Merge final
+----
+Modified: .gitignore
+Added: .vscode/settings.json
+Rename: README.txt (from README.md)
+Added: Relatorio/Diagrama_De_Classes_v1.1.asta
+Added: Relatorio/T1_GCS_AeS.docx
+Added: src/App.java
+Added: src/departamentos/DepComercial.java
+Added: src/departamentos/DepEngenharia.java
+Added: src/departamentos/DepFinanceiro.java
+Added: src/departamentos/DepManutencao.java
+Added: src/departamentos/DepRH.java
+Added: src/departamentos/DepTI.java
+Added: src/departamentos/Departamento.java
+Added: src/models/Item.java
+Added: src/models/ListaDeItens.java
+Added: src/models/Pedido.java
+Added: src/models/StatusPedido.java
+Added: src/models/Usuario.java
+Added: src/registros/RegistroDeDepartamentos.java
+Added: src/registros/RegistroDePedidos.java
+Added: src/registros/RegistroDeUsuarios.java
+
+Revision: 475f8c71dce7b26a42f85391291bda69bdc5c846
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 21/10/2021 03:05:54
+Message:
+Correção de detalhes na classe App
+
+----
+Modified: src/App.java
+
+Revision: 824057f644f7482a1a1b456886b4f4b1345bbccd
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 21/10/2021 03:03:37
+Message:
+Inclusão do atributo tipo(funcionário ou administrador) e inclusão da opção 9 no menu(excluir pedido)
+
+----
+Modified: src/App.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: dbbc12d62c95146fa8bfc5c81df4ac26916e1a39
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 21/10/2021 02:46:39
+Message:
+Correção de alguns métodos e correção da main
+
+----
+Modified: src/App.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 7df106a0abee7a32988028fa0072f93e16913a23
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 20/10/2021 23:28:59
+Message:
+implementando funcionalidade de aprovar e reprovar um pedido
+
+----
+Modified: src/App.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 8e119ec7c7057ab054a0cbbcdb0ac60a4f9400d4
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 20/10/2021 16:13:42
+Message:
+Terminando opções do menu e ajustes na classe ListaDeItens
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+
+Revision: 5e60af2b411061fa34b9726780649e9edeff7d22
+Author: Eduardo Augusto Finger Ballico <ballico591@gmail.com>
+Date: 20/10/2021 15:19:40
+Message:
+Correção da cagada anterior
+
+----
+Modified: src/App.java
+
+Revision: 68abf02e4c76e277f8b3669698c41e34f72225ca
+Author: Eduardo Augusto Finger Ballico <ballico591@gmail.com>
+Date: 20/10/2021 15:05:13
+Message:
+Detalhes no App
+
+----
+Modified: src/App.java
+
+Revision: ab8d1d278a2006de99ced10b158d7993c48560d0
+Author: Eduardo Augusto Finger Ballico <ballico591@gmail.com>
+Date: 20/10/2021 14:59:48
+Message:
+Atualização relatório (sumário)
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: e8426f924307b40acbefff8ad807315bfade9eec
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 19/10/2021 22:39:40
+Message:
+Inclusão do valor total no Pedido
+
+----
+Modified: src/models/Pedido.java
+
+Revision: f656ea914eddac7b7b56939b2677190a5f0f8b70
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 19/10/2021 22:31:01
+Message:
+arrumando o cadastro de novo pedido
+
+----
+Modified: src/App.java
+
+Revision: 24ae9646a9f9d1ba9d587f530f4a158c2147e227
+Author: Guilherme Matheus Dornelles <81441745+GuilhermeDornelles@users.noreply.github.com>
+Date: 19/10/2021 22:23:07
+Message:
+Arrumando as Strings das classes
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDeDepartamentos.java
+Modified: src/registros/RegistroDePedidos.java
+Modified: src/registros/RegistroDeUsuarios.java
+
+Revision: a4a19c4744cf4a6f673d07c6fddac3e2eebb6324
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 19/10/2021 21:02:55
+Message:
+adicionando funcao de logar sempre que inicia o programa
+
+----
+Modified: src/App.java
+Modified: src/models/Pedido.java
+
+Revision: da0ee262792f67bb5767594fdd105372690ede21
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 19/10/2021 20:39:54
+Message:
+Ajuste no Lista de Itens
+
+----
+Modified: src/models/ListaDeItens.java
+
+Revision: 8f4043cef4ef9da7f16673e1b0dc2510397467b9
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 19/10/2021 20:38:28
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/App.java
+Modified: src/departamentos/DepComercial.java
+Modified: src/departamentos/DepEngenharia.java
+Modified: src/departamentos/DepFinanceiro.java
+Modified: src/departamentos/DepManutencao.java
+Modified: src/departamentos/DepRH.java
+Modified: src/departamentos/DepTI.java
+Modified: src/departamentos/Departamento.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: c19df98f76a5f4fd9d99b3e5d3a9a0de35f0066e
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 19/10/2021 20:30:02
+Message:
+Adicionada função para criar pedido
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+
+Revision: 4945e2b83ee370d7687d1020fdc55ad222d1e450
+Author: joaovittorcaumo <82113461+joaovittorcaumo@users.noreply.github.com>
+Date: 19/10/2021 19:51:15
+Message:
+Update App.java
+
+----
+Modified: src/App.java
+
+Revision: f7ee8845fe3541b61018392920b7c5a9c7e4563f
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 19/10/2021 16:06:46
+Message:
+Correções no Relatório
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: 7d6ec21871be594fbda10bdcd26492d5199d3ba2
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 19/10/2021 01:06:48
+Message:
+Novas atualizações ao relatorio
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: 1e87c87d80be1b4258693525ba6d58444fb0bdfd
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 19/10/2021 20:38:20
+Message:
+Arrumando métodos necessários, inclusão de atributos em alguns toStrings
+
+----
+Modified: src/App.java
+Modified: src/departamentos/DepComercial.java
+Modified: src/departamentos/DepEngenharia.java
+Modified: src/departamentos/DepFinanceiro.java
+Modified: src/departamentos/DepManutencao.java
+Modified: src/departamentos/DepRH.java
+Modified: src/departamentos/DepTI.java
+Modified: src/departamentos/Departamento.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 3a521e8abc8e1a1303d1226ced3be54db43d7b09
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 18/10/2021 02:07:44
+Message:
+fix estatisticasGerais e arrumando algumas coisas no App
+
+----
+Modified: src/App.java
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 0cbb8bd540052813d3c710f521ccbe3c4a5aac2b
+Author: Eduardo Augusto Finger Ballico <ballico591@gmail.com>
+Date: 17/10/2021 22:12:36
+Message:
+Alterações app e novo metodo(precisa de correções)
+
+----
+Modified: src/App.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDeDepartamentos.java
+
+Revision: a9acb2b65090e9cde11bb94e611b5978374f5435
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 17/10/2021 19:00:27
+Message:
+Atualização Relatorio
+
+----
+Modified: Relatorio/T1_GCS_AeS.docx
+
+Revision: e9d6d63dcfb57bf176ef8168cc114cbe0d6821d1
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 17/10/2021 18:00:00
+Message:
+Organização de Arquivos
+Mudanças no App e Usuário
+----
+Deleted: Diagrama_De_Classes_v1.1.asta
+Deleted: T1_GCS_AeS
+Deleted: T1_GCS_AeS.docx
+Modified: src/App.java
+Modified: src/models/Usuario.java
+
+Revision: 5954a1b661b7665490f236be7674fa4ea3b4a50c
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 17/10/2021 17:36:45
+Message:
+criada pasta relatorio para organizacao
+
+----
+Added: Relatorio/Diagrama_De_Classes_v1.1.asta
+Added: Relatorio/T1_GCS_AeS.docx
+
+Revision: 10f1d5ff6336b2bf6ac15dcc668af76c6f9066f2
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 17/10/2021 17:32:21
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Modified: src/App.java
+Modified: src/registros/RegistroDeUsuarios.java
+Added: T1_GCS_AeS
+Added: T1_GCS_AeS.docx
+
+Revision: 85b8d7c65a3b426890cd4c20394843b14d4921fa
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 17/10/2021 16:28:48
+Message:
+Continuação do Menu/EstatisticasGerais
+
+----
+Modified: src/App.java
+Modified: src/registros/RegistroDeUsuarios.java
+
+Revision: dc5ca19fe0079a8a5ac0b13a1a5a37e0b4a680c7
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 17/10/2021 17:30:50
+Message:
+Acrescentando Relatorio
+
+----
+Added: T1_GCS_AeS
+Added: T1_GCS_AeS.docx
+
+Revision: 9e0eb0187da440b987da1109ca8883f3e23bf644
+Author: arthurkunzler <72428522+arthurkunzler@users.noreply.github.com>
+Date: 16/10/2021 19:27:19
+Message:
+Merge pull request #1 from EduardoBallico/feature/RegistroDePedidos
+
+Feature/registro de pedidos
+
+- implementando metodos: listaPedidosNoPeriodo e estatisticasGerais
+----
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: f6ef66f45330f01c1a448468db5f3fc59aaea3c4
+Author: arthurkunzler <72428522+arthurkunzler@users.noreply.github.com>
+Date: 16/10/2021 19:26:26
+Message:
+Merge branch 'develop' into feature/RegistroDePedidos
+
+----
+Modified: Diagrama_De_Classes_v1.1.asta
+Modified: src/App.java
+Modified: src/departamentos/DepComercial.java
+Modified: src/departamentos/DepEngenharia.java
+Modified: src/departamentos/DepFinanceiro.java
+Modified: src/departamentos/DepManutencao.java
+Modified: src/departamentos/DepRH.java
+Modified: src/departamentos/DepTI.java
+Modified: src/departamentos/Departamento.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Added: src/registros/RegistroDeDepartamentos.java
+Modified: src/registros/RegistroDePedidos.java
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 7f46db523faa6a3c6435ffa8eb6c5da0617d799f
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 15/10/2021 22:08:51
+Message:
+Modificação da função preencheDados()
+Implementação da base da função executar() e exibeMenu()
+----
+Modified: Diagrama_De_Classes_v1.1.asta
+Modified: src/App.java
+
+Revision: d16c9b6c96f76ea16921751357dcb7cd96204a3f
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 15/10/2021 21:00:21
+Message:
+Criação da Classe RegistroDeDepartamentos.
+Guarda os departamentos existentes
+----
+Added: src/registros/RegistroDeDepartamentos.java
+
+Revision: 1a651e448675b488398e21e09aeac030e16bbb51
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 15/10/2021 20:58:25
+Message:
+Modificação em Departamentos:
+Agora possui identificador
+----
+Modified: src/departamentos/DepComercial.java
+Modified: src/departamentos/DepEngenharia.java
+Modified: src/departamentos/DepFinanceiro.java
+Modified: src/departamentos/DepManutencao.java
+Modified: src/departamentos/DepRH.java
+Modified: src/departamentos/DepTI.java
+Modified: src/departamentos/Departamento.java
+
+Revision: 174789396bf00ba7a6c94c9e7a6dd93254bc0ed0
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 15/10/2021 20:01:23
+Message:
+Organização da função preencheDados()
+
+----
+Modified: src/App.java
+
+Revision: d5345859af4ac5a42b8f3f5db01c2781c9f2f3e1
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 15/10/2021 19:02:20
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+
+Revision: 20b09c511191ec3416c04f332d0f09128c498084
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 15/10/2021 19:01:04
+Message:
+Inclusão de novos métodos e mudança na App
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 4fb52b8f36d16e2f3b0dc084fcf964ede206583c
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 15/10/2021 19:01:59
+Message:
+Inclusão de novos métodos e mudança na App
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: a879568cfce6f7fe90ced8dd11a6b6fadf2d9403
+Author: Arhur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 16/10/2021 19:18:25
+Message:
+adicionando estatisticasgerais em RegistroDePedidos - agora com o usuario certo
+
+----
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 7557571e48b1e57d5028b9185472dba6f39d49f5
+Author: Arhur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 16/10/2021 19:15:10
+Message:
+Revert "adicionando metodo estatisticasGerais do RegistroDePedidos"
+
+This reverts commit 1e5c1785445f928c465746274834e36e3dc0e5e9.
+----
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 1e5c1785445f928c465746274834e36e3dc0e5e9
+Author: Kunzler <Arthur_Kunzler@Dellteam.com>
+Date: 16/10/2021 19:00:31
+Message:
+adicionando metodo estatisticasGerais do RegistroDePedidos
+
+----
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: e9088394562f3cfaf1287a602ea3f06e83279fe3
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 15/10/2021 20:08:47
+Message:
+implementando listaPedidosNoPeriodo em RegistroDePedidos
+
+----
+Modified: src/App.java
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: c5b432376b2e31796aa746c5231a227a83dd8595
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 15/10/2021 18:49:47
+Message:
+adiconando contrutor de registroDePedidos
+
+----
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 6cd8b41b7ad0393fd03a5aa4ecd232dbb8131b7f
+Author: Guilherme Matheus Dornelles <81441745+GuilhermeDornelles@users.noreply.github.com>
+Date: 15/10/2021 12:45:00
+Message:
+Correção dos métodos da ListaDeItens
+
+----
+Modified: src/App.java
+
+Revision: ba9d674a86b2b3525d37ae512c3df4ef8430bd8c
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 08/10/2021 18:12:38
+Message:
+fix status do pedido
+
+----
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+
+Revision: 9e44d4c3aeea32f206d3b8d26ccca95fc5aa477e
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 07/10/2021 16:53:26
+Message:
+Implementação de alguns métodos e criação de método preenche na classe App
+
+----
+Modified: src/App.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDeUsuarios.java
+
+Revision: 279518e9959c36c7faf9f62b53129643082cc79f
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 04/10/2021 21:48:59
+Message:
+corrigido erro no App -> main
+
+----
+Modified: src/App.java
+
+Revision: a1de76d3e26e0f941bc3ab0dbbe0b4785226d3f9
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 04/10/2021 11:46:04
+Message:
+Inclusão de métodos necessários
+
+----
+Modified: src/models/Item.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: 2beb2adf802ed32ce8b5cdbe218611fd697b0850
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 01/10/2021 19:34:25
+Message:
+Manutenção das classes diretamente relacionadas a pedido (falta terminar o RegistroDePedidos)
+
+----
+Modified: src/departamentos/DepComercial.java
+Modified: src/departamentos/DepEngenharia.java
+Modified: src/departamentos/DepFinanceiro.java
+Modified: src/departamentos/DepManutencao.java
+Modified: src/departamentos/DepRH.java
+Modified: src/departamentos/DepTI.java
+Modified: src/models/Item.java
+Modified: src/models/ListaDeItens.java
+Modified: src/models/Pedido.java
+Added: src/models/StatusPedido.java
+Modified: src/models/Usuario.java
+Modified: src/registros/RegistroDePedidos.java
+
+Revision: ba6fa6a5d27adb2ad18426e1ada8a76e60fae72a
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 01/10/2021 18:42:01
+Message:
+adicionando packages
+
+----
+Modified: src/App.java
+Deleted: src/ListaDeItem.java
+Rename: src/departamentos/DepComercial.java (from src/DepComercial.java)
+Rename: src/departamentos/DepEngenharia.java (from src/DepEngenharia.java)
+Rename: src/departamentos/DepFinanceiro.java (from src/DepFinanceiro.java)
+Rename: src/departamentos/DepManutencao.java (from src/DepManutencao.java)
+Rename: src/departamentos/DepRH.java (from src/DepRH.java)
+Rename: src/departamentos/DepTI.java (from src/DepTI.java)
+Rename: src/departamentos/Departamento.java (from src/Departamento.java)
+Rename: src/models/Item.java (from src/Item.java)
+Added: src/models/ListaDeItens.java
+Rename: src/models/Pedido.java (from src/Pedido.java)
+Rename: src/models/Usuario.java (from src/Usuario.java)
+Rename: src/registros/RegistroDePedidos.java (from src/RegistroDePedidos.java)
+Rename: src/registros/RegistroDeUsuarios.java (from src/RegistroDeUsuarios.java)
+
+Revision: 912baa70484bd1e8df68d7943fe0e8b0886525cf
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 25/09/2021 11:39:51
+Message:
+- Adicionadas as Classes:
+Item
+ListaDeItem
+Pedido
+RegistroDePedidos
+
+- Remocao de arquivos especificos de IDE:
+.vscode
+.idea
+
+- Adicionados arquivos acima ao .gitignore
+
+- Atualizacao no arquivo .asta e Remocao da duplicata
+----
+Modified: .gitignore
+Deleted: Diagrama de Classes.asta
+Deleted: Diagrama_De_Classes_v1.0.asta
+Added: Diagrama_De_Classes_v1.1.asta
+Modified: src/App.java
+Added: src/Item.java
+Added: src/ListaDeItem.java
+Added: src/Pedido.java
+Added: src/RegistroDePedidos.java
+
+Revision: 2884baa15c473547ad6d2604081b2904323215b8
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 25/09/2021 02:10:11
+Message:
+Alteracao no nome de algumas classes
+
+----
+Added: Diagrama de Classes.asta
+
+Revision: 99352ecda6f0a29efcf2d6d7eafa58557cdb2116
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 25/09/2021 02:07:13
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Rename: Diagrama_De_Classes_v1.0.asta (from Diagrama de Classes.asta)
+Added: src/DepComercial.java
+Added: src/DepEngenharia.java
+Added: src/DepFinanceiro.java
+Added: src/DepManutencao.java
+Added: src/DepRH.java
+Added: src/DepTI.java
+Added: src/Departamento.java
+Added: src/RegistroDeUsuarios.java
+Added: src/Usuario.java
+
+Revision: 48876c398fd000637357d7532e32fd79f2d959fd
+Author: VarBoff <vinirechboff@gmail.com>
+Date: 24/09/2021 21:43:46
+Message:
+Alteracao no arquivo Astah
+
+----
+Rename: Diagrama_De_Classes_v1.0.asta (from Diagrama de Classes.asta)
+
+Revision: 9b1aa7b9bc509469b699ec4336cb7f01220da610
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 25/09/2021 02:07:04
+Message:
+Inclusao das classes relacionadas aos departamentos e das classes relacionadas aos funcionarios
+
+----
+Added: src/DepComercial.java
+Added: src/DepEngenharia.java
+Added: src/DepFinanceiro.java
+Added: src/DepManutencao.java
+Added: src/DepRH.java
+Added: src/DepTI.java
+Added: src/Departamento.java
+Added: src/RegistroDeUsuarios.java
+Added: src/Usuario.java
+
+Revision: 559e97a0aaee5f20ca4b94404fd8916e6b2df93d
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 21:36:18
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Modified: src/App.java
+Modified: Diagrama de Classes.asta
+
+Revision: 308a616cd4050ff68f8ec96713d8732554df7346
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 24/09/2021 19:21:38
+Message:
+Alteração "Bom dia Rapazes"
+
+----
+Modified: src/App.java
+
+Revision: f10d9a4f34f85a53462b1b58b7ec415611c15e5f
+Author: Matheus <M.DAmore@edu.pucrs.br>
+Date: 24/09/2021 19:20:19
+Message:
+Alteração "oi mts"
+
+----
+Modified: src/App.java
+
+Revision: dd9e41425b1ccafc7cd5a29397c5a4ccf69b282e
+Author: Matheus Streck <M.DAmore@edu.pucrs.br>
+Date: 24/09/2021 19:15:29
+Message:
+teste
+
+----
+Modified: src/App.java
+
+Revision: 49f25744e54b6101562d85ce6bab7db7b9eb6e08
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 21:35:39
+Message:
+Diagrama de Classe 1
+
+----
+Modified: Diagrama de Classes.asta
+
+Revision: f705da59cd6c3e47b3cea1d10a063c46afd76257
+Author: Vinícius André Rech Boff <vinirechboff@gmail.com>
+Date: 24/09/2021 19:04:44
+Message:
+Remocao de arquivo velho
+
+----
+Deleted: README.md
+
+Revision: 0cb767ce7cea692a22e5b7d402e7bcb93ddb2c3a
+Author: Vinícius André Rech Boff <vinirechboff@gmail.com>
+Date: 24/09/2021 19:01:20
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Modified: .gitignore
+Deleted: Diagrama de Classes.asta.lock
+Added: README.txt
+
+Revision: 4ed7ce6a8cadc7636639287033e4834b9479b34e
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 24/09/2021 18:51:10
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Deleted: Diagrama de Classes.asta.lock
+Modified: .gitignore
+
+Revision: 99e2bc957e511737b166de63962744aa615a32cc
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:47:51
+Message:
+Remoção do asta.lock
+
+----
+Deleted: Diagrama de Classes.asta.lock
+
+Revision: 165f6a33c6aba9549be857f71b2b5734285dfe40
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 24/09/2021 18:50:44
+Message:
+Add asta.lock no .gitignore
+
+----
+Modified: .gitignore
+
+Revision: 51997b48cbbbe8cd1e753d0725887a034ddd7f3b
+Author: Vinícius André Rech Boff <vinirechboff@gmail.com>
+Date: 24/09/2021 18:58:59
+Message:
+Teste
+
+----
+Added: README.txt
+
+Revision: 9d863f6a2f27d60f085ad034c565ce7bdcff44cb
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:38:50
+Message:
+Remoção do App.java
+
+----
+Deleted: App.java
+
+Revision: b33b2c4877331a6f2c8683a2b3b708c257e59bfa
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:38:01
+Message:
+Merge branch 'develop' of https://github.com/EduardoBallico/T1_GCS_AeS into develop
+
+----
+Added: .vscode/settings.json
+Added: src/App.java
+Added: Diagrama de Classes.asta
+Added: Diagrama de Classes.asta.lock
+
+Revision: 64d44344a538b49913201eb3428b4610afd2845b
+Author: Arthur Kunzler <arthur.gabriel.k@gmail.com>
+Date: 24/09/2021 18:34:33
+Message:
+Criando java project
+
+----
+Added: .vscode/settings.json
+Added: src/App.java
+
+Revision: cf427e233e17465cf32a7084f126d87f462fd55b
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:37:40
+Message:
+Inclusão do arquivo Astah
+
+----
+Added: Diagrama de Classes.asta
+Added: Diagrama de Classes.asta.lock
+
+Revision: f8a484347066d5d6c13c94457b22af418a64d013
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:32:03
+Message:
+Resolvendo conflitos
+
+----
+Modified: App.java
+Modified: App.java
+
+Revision: 7745895bae2a530d3b039ee8f8208e755017934a
+Author: Eduardo Augusto Finger Ballico <ballico591@gmail.com>
+Date: 24/09/2021 18:25:56
+Message:
+Teste
+
+----
+Modified: App.java
+
+Revision: 6494acee3e23dc258203b434fc991ac023876985
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:29:24
+Message:
+Hello World -- teste
+
+----
+Modified: App.java
+
+Revision: 62d0bd30ab431d5004bc67915fd4fbf5328944ab
+Author: Guilherme Matheus Dornelles <guilherme.dornelles@edu.pucrs.br>
+Date: 24/09/2021 18:19:22
+Message:
+Criando o App
+
+----
+Added: App.java
+
+Revision: ce747f0a54e66b8725e8460d66baca184573ce1c
+Author: Eduardo Augusto Finger Ballico <48328387+EduardoBallico@users.noreply.github.com>
+Date: 24/09/2021 18:06:21
+Message:
+Initial commit
+
+----
+Added: .gitignore
+Added: README.md
+
